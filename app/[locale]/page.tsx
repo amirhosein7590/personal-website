@@ -15,6 +15,6 @@ export default function Home({ params }: Props) {
   setRequestLocale(locale)
 
   return (
-    <></>
+    <div>asdasdd</div>
   );
 }
