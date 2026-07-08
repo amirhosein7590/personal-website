@@ -1,14 +1,15 @@
 import 'dotenv/config';
 import type { PrismaConfig } from 'prisma';
+import { defineConfig, env } from "prisma/config";
 
-export default {
+export default defineConfig({
     schema: 'prisma/schema.prisma',
 
     datasource: {
-        url: process.env.DATABASE_TURSO_DATABASE_URL,
+        url: env("DATABASE_URL")
     },
 
     migrations: {
         path: 'prisma/migrations',
     },
-} satisfies PrismaConfig;
+})

@@ -11,12 +11,10 @@
     "prisma:migrate": "prisma migrate dev --schema=./prisma/schema.prisma",
     "prisma:push": "prisma db push --schema=./prisma/schema.prisma",
     "prisma:studio": "prisma studio --schema=./prisma/schema.prisma",
-    "prisma:test": "tsx -e \"import('./lib/prisma').then(({testConnection}) => testConnection())\""
+    "prisma:test": "tsx -e \"import('./lib/prisma').then(({default: m}) => m.testConnection())\""
   },
   "dependencies": {
-    "@libsql/client": "^0.17.4",
-    "@prisma/adapter-libsql": "^7.8.0",
-    "@prisma/client": "^7.8.0",
+    "@prisma/client": "^6.19.0",
     "@tanstack/react-query": "^5.101.2",
     "@trpc/client": "^11.18.0",
     "@trpc/next": "^11.18.0",
@@ -26,6 +24,7 @@
     "framer-motion": "^12.42.2",
     "next": "16.2.10",
     "next-intl": "^4.13.1",
+    "prisma": "^6.19.0",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "react-hook-form": "^7.81.0",
@@ -39,8 +38,8 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.10",
-    "prisma": "^7.8.0",
     "tailwindcss": "^4",
+    "tsx": "^4.23.0",
     "typescript": "^5"
   }
 }
