@@ -3,9 +3,8 @@ import { NextRequest } from "next/server"
 import { NextResponse } from "next/server"
 
 type User = {
-    username: string,
-    fullName: string,
-    password: string
+    fullName : "amirhosein",
+    phone : "09975448596",
 }
 
 export async function POST(req: NextRequest) {
