@@ -5,6 +5,8 @@ import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { setRequestLocale } from "next-intl/server";
+import { TrpcProvider } from "@/providers/TrpcProvider";
+
 
 const estedad = Estedad({
   src: [
@@ -55,9 +57,11 @@ export default async function RootLayout({ children, params }: Props) {
       className={`${isRTL ? estedad.className : inter.className}`}
     >
       <body>
-        <NextIntlClientProvider>
-          {children}
-        </NextIntlClientProvider>
+        <TrpcProvider>
+          <NextIntlClientProvider>
+            {children}
+          </NextIntlClientProvider>
+        </TrpcProvider>
       </body>
     </html>
   );
