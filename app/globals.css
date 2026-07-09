@@ -2,19 +2,19 @@
 
 @import "tailwindcss";
 
+
 @layer base {
   :root {
-    --bg-body: #ffffff;
     --text-body: #171717;
     --bg-dark: #080c14;
     --bg-card: #111726;
     --accent-blue: #3b82f6;
     --accent-purple: #8b5cf6;
+     --font-primary: var(--font-inter);
   }
 }
 
 @theme {
-  --color-bg-body: var(--bg-body);
   --color-text-body: var(--text-body);
   --color-bg-dark: var(--bg-dark);
   --color-bg-card: var(--bg-card);
@@ -22,9 +22,10 @@
   --color-accent-purple: var(--accent-purple);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html[lang="fa"]{
+    --font-primary: var(--font-estedad);
+}
+
+body{
+    font-family: var(--font-primary);
 }

@@ -10,11 +10,12 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export default function Home({ params }: Props) {
-  const { locale } = use(params);
-  setRequestLocale(locale)
 
+export default function Home({ params }: Props) {
+  const { locale } = use(params)
+  setRequestLocale(locale);
   return (
-    <></>
+    <>
+    </>
   );
 }

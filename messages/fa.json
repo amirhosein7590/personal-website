@@ -1,5 +1,7 @@
 {
     "HomePage" : {
-        "introduction" : "سلام من امیرحسین هستم"
+        "Navbar" : {
+            "DeveloperName" : "امیرحسین غلامی"
+        }
     }
 }

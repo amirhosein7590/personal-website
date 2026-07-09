@@ -1,5 +1,7 @@
 {
     "HomePage" : {
-        "introduction" : "Hi There I Am Amirhosein"
+        "Navbar" : {
+            "DeveloperName" : "Amirhosein Gholami"
+        }
     }
 }

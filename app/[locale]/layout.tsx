@@ -6,7 +6,8 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { setRequestLocale } from "next-intl/server";
 import { TrpcProvider } from "@/providers/TrpcProvider";
-
+import { isRtl } from "@/utils/i18n/isRtl";
+import Navbar from "@/components/navbar/Navbar";
 
 const estedad = Estedad({
   src: [
@@ -36,8 +37,6 @@ type Props = {
   params: Promise<{ locale: string }>;
 };
 
-const rtlLocales = ['fa', 'ar', 'he'];
-
 
 export default async function RootLayout({ children, params }: Props) {
 
@@ -48,7 +47,7 @@ export default async function RootLayout({ children, params }: Props) {
   }
   setRequestLocale(locale);
 
-  const isRTL = rtlLocales.includes(locale);
+  const isRTL = isRtl(locale)
 
   return (
     <html
@@ -56,9 +55,10 @@ export default async function RootLayout({ children, params }: Props) {
       dir={isRTL ? 'rtl' : 'ltr'}
       className={`${isRTL ? estedad.className : inter.className}`}
     >
-      <body>
+      <body className="bg-bg-dark">
         <TrpcProvider>
           <NextIntlClientProvider>
+            <Navbar locale={locale} />
             {children}
           </NextIntlClientProvider>
         </TrpcProvider>
