@@ -7,17 +7,17 @@ import { routing } from '@/i18n/routing';
 import { setRequestLocale } from "next-intl/server";
 import { TrpcProvider } from "@/providers/TrpcProvider";
 import { isRtl } from "@/utils/i18n/isRtl";
-import Navbar from "@/components/navbar/Navbar";
+import Navbar from "@/components/templates/navbar/Navbar";
 
 const estedad = Estedad({
   src: [
     {
-      path: "../../public/fonts/Estedad-Regular.woff2",  // ✅ دو تا ../ برو بالا
+      path: "../../public/fonts/Estedad-Regular.woff2",
       style: "normal",
       weight: "400"
     },
     {
-      path: "../../public/fonts/Estedad-ExtraBold.woff2",  // ✅ دو تا ../
+      path: "../../public/fonts/Estedad-ExtraBold.woff2",
       style: "normal",
       weight: "700"
     }
@@ -59,7 +59,9 @@ export default async function RootLayout({ children, params }: Props) {
         <TrpcProvider>
           <NextIntlClientProvider>
             <Navbar locale={locale} />
-            {children}
+            <main className="max-w-300 mx-auto text-white px-4 lg:px-0">
+              {children}
+            </main>
           </NextIntlClientProvider>
         </TrpcProvider>
       </body>

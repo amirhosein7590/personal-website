@@ -2,6 +2,18 @@
     "HomePage" : {
         "Navbar" : {
             "DeveloperName" : "Amirhosein Gholami"
+        },
+        "HeroHeader" : {
+            "DeveloperIntroduction" : "I Am Amirhosein",
+            "WhoIam" : {
+                "main" : "Full Stack Developer Building ",
+                "markedText" : "Fast & Scalable Web Products"
+            },
+            "WhatIDo" : "Helping businesses build fast, secure, and scalable web or application from idea to launch.",
+            "Buttons" : {
+                "ViewProjects" : "Browse Projects",
+                "StartProject" : "Book a Free Consultation"
+            }
         }
     }
 }
