@@ -16,7 +16,7 @@ function HeroHeader({ locale }: { locale: string }) {
                 </h1>
                 <p className='text-sm lg:text-[16px] text-center lg:text-start mt-4 text-gray-400'>{t("HeroHeader.WhatIDo")}</p>
 
-                <div className="buttons-container flex flex-wrap flex-col lg:flex-nowrap lg:flex-row mt-5 lg:mt-10 justify-center gap-x-8 items-center">
+                <div className="buttons-container flex flex-wrap flex-col md:flex-nowrap md:flex-row mt-5 md:mt-10 justify-center gap-x-8 items-center">
                     <Button className={cn(
                         "text-sm lg:text-[16px] py-3 px-8 bg-transparent border w-full mt-5 lg:mt-0 lg:w-1/2 border-white",
                         "rounded-md flex justify-center items-center cursor-pointer"
@@ -32,7 +32,7 @@ function HeroHeader({ locale }: { locale: string }) {
             </div>
 
             <div className="hero-header__image w-full mt-7 lg:mt-0 lg:w-1/2 max-h-125">
-                <Image priority fetchPriority="high" className='w-full h-full select-none' src="/images/output.png" alt={locale == "fa" ? "تصویر پرتره امیرحسین غلامی توسعه‌دهنده فول استک" : "Portrait of Amirhosein Gholami, Full Stack Developer"} width={941} height={1672} />
+                <Image priority fetchPriority="high" className={`w-full h-full select-none ${locale == "fa" && "scale-x-[-1]"}`} src="/images/hero-header-image.png" alt={locale == "fa" ? "تصویر پرتره امیرحسین غلامی توسعه‌دهنده فول استک" : "Portrait of Amirhosein Gholami, Full Stack Developer"} width={941} height={1672} />
             </div>
         </section>
     )
