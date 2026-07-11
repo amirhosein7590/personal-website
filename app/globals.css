@@ -1,7 +1,5 @@
 @import "tailwindcss";
 
-@import "tailwindcss";
-
 
 @layer base {
   :root {
@@ -21,6 +19,8 @@
   --color-accent-blue: var(--accent-blue);
   --color-accent-purple: var(--accent-purple);
 }
+
+
 
 html[lang="fa"]{
     --font-primary: var(--font-estedad);

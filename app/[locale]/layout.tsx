@@ -55,11 +55,11 @@ export default async function RootLayout({ children, params }: Props) {
       dir={isRTL ? 'rtl' : 'ltr'}
       className={`${isRTL ? estedad.className : inter.className}`}
     >
-      <body className="bg-bg-dark">
+      <body className="bg-bg-dark overflow-x-hidden">
         <TrpcProvider>
           <NextIntlClientProvider>
             <Navbar locale={locale} />
-            <main className="max-w-300 mx-auto text-white px-4 lg:px-0">
+            <main className="text-white px-4 lg:px-0">
               {children}
             </main>
           </NextIntlClientProvider>

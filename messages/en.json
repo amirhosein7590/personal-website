@@ -14,6 +14,30 @@
                 "ViewProjects" : "Browse Projects",
                 "StartProject" : "Book a Free Consultation"
             }
+        },
+
+        "Services" : {
+            "Cards" : {
+                "ApplicationDevelopment": {
+                    "Title": "Application Development",
+                    "Description": "Build fast, secure, and scalable websites and desktop applications"
+                },
+                "UserInterfaceDesign": {
+                    "Title": "User Interface Design",
+                    "Description": "Modern and user-friendly UI and UX design"
+                },
+                "BackendDevelopment": {
+                    "Title": "Backend Development",
+                    "Description": "Implementing powerful APIs and backend systems"
+                },
+                "OptimizationConsulting": {
+                    "Title": "Optimization Consulting",
+                    "Description": "Technical consulting, performance optimization and enhancement, security enhancement"
+                }
+            },
+            "MyServicesText" : "My Services",
+            "Solutions" : "Complete solutions for your business",
+            "HowCanIHelpYou" : "I help you turn your ideas into digital products."
         }
     }
 }

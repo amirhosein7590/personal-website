@@ -1,3 +1,5 @@
+"use client"
+
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Button from '../modules/button'
@@ -7,7 +9,7 @@ import { ArrowLeft, ArrowRight } from 'lucide-react'
 function HeroHeader({ locale }: { locale: string }) {
     const t = useTranslations("HomePage")
     return (
-        <section aria-labelledby="hero-title" className='hero-header__container mt-15 lg:mt-20 flex flex-col lg:flex-row lg:justify-between flex-wrap lg:flex-nowrap'>
+        <section aria-labelledby="hero-title" className='hero-header__container max-w-7xl mx-auto mt-15 lg:mt-20 flex flex-col lg:flex-row lg:justify-between flex-wrap lg:flex-nowrap'>
             <div className="hero-header__main flex flex-col gap-y-5 w-full lg:w-1/2">
                 <p className='lg:text-lg font-bold text-center lg:text-start'>{t("HeroHeader.DeveloperIntroduction")}</p>
                 <h1 className=' text-xl lg:text-5xl leading-10 lg:leading-20 text-center lg:text-start font-bold'>
@@ -30,9 +32,8 @@ function HeroHeader({ locale }: { locale: string }) {
                     </Button>
                 </div>
             </div>
-
             <div className="hero-header__image w-full mt-7 lg:mt-0 lg:w-1/2 max-h-125">
-                <Image priority fetchPriority="high" className={`w-full h-full select-none ${locale == "fa" && "scale-x-[-1]"}`} src="/images/hero-header-image.png" alt={locale == "fa" ? "تصویر پرتره امیرحسین غلامی توسعه‌دهنده فول استک" : "Portrait of Amirhosein Gholami, Full Stack Developer"} width={941} height={1672} />
+                <Image priority fetchPriority="high" className={`w-full h-full select-none ${locale == "fa" ? "scale-x-[-1] lg:mr-20 xl:mr-25" : "lg:ml-20 xl:ml-25"}`} src="/images/hero-header-image.png" alt={locale == "fa" ? "تصویر پرتره امیرحسین غلامی توسعه‌دهنده فول استک" : "Portrait of Amirhosein Gholami, Full Stack Developer"} width={941} height={1672} />
             </div>
         </section>
     )

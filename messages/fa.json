@@ -14,6 +14,29 @@
                 "ViewProjects" : "مشاهده نمونه کار ها",
                 "StartProject" : "رزرو مشاوره رایگان"
             }
+        },
+        "Services" : {
+            "Cards" : {
+                "ApplicationDevelopment" : {
+                    "Title" : "توسعه اپلیکیشن",
+                    "Description" : "ساخت وب سایت و اپلیکیشن های دسکتاپ ، سریع ، امن و مقیاس پذیر"
+                },
+                "UserInterfaceDesign" : {
+                    "Title" : "طراحی رابط کاربری",
+                    "Description" : "طراحی UI , UX مدرن و کاربر پسند"
+                },
+                "BackendDevelopment" : {
+                    "Title" : "توسعه بک اند",
+                    "Description" : "پیاده سازی API ها و سیستم های بک اند قدرتمند"
+                },
+                "OptimizationConsulting" : {
+                    "Title" : "مشاوره بهینه سازی",
+                    "Description" : "مشاوره فنی ، بهینه سازی و افزایش عملکرد ، افزایش امنیت"
+                }
+            },
+            "MyServicesText" : "خدمات من",
+            "Solutions" : "راه حل های کامل برای کسب و کار شما",
+            "HowCanIHelpYou" : "من به شما کمک میکنم ایده هایتان را به محصولات دیجیتال تبدیل کنید"
         }
     }
 }
