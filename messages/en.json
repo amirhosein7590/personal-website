@@ -4,12 +4,12 @@
             "DeveloperName" : "Amirhosein Gholami"
         },
         "HeroHeader" : {
-            "DeveloperIntroduction" : "I Am Amirhosein",
+            "DeveloperIntroduction" : "I'm Amirhosein",
             "WhoIam" : {
                 "main" : "Full Stack Developer Building ",
                 "markedText" : "Fast & Scalable Web Products"
             },
-            "WhatIDo" : "Helping businesses build fast, secure, and scalable web or application from idea to launch.",
+            "WhatIDo" : "Building modern web and desktop applications for growing businesses.",
             "Buttons" : {
                 "ViewProjects" : "Browse Projects",
                 "StartProject" : "Book a Free Consultation"
@@ -19,25 +19,25 @@
         "Services" : {
             "Cards" : {
                 "ApplicationDevelopment": {
-                    "Title": "Application Development",
-                    "Description": "Build fast, secure, and scalable websites and desktop applications"
+                    "Title": "Custom Application Development",
+                    "Description": "Build secure, scalable web and desktop applications tailored to your business requirements, from planning to deployment."
                 },
                 "UserInterfaceDesign": {
-                    "Title": "User Interface Design",
-                    "Description": "Modern and user-friendly UI and UX design"
+                    "Title": "Interfaces Users Enjoy Using",
+                    "Description": "Design intuitive interfaces that make your product easier to use and increase user engagement."
                 },
                 "BackendDevelopment": {
-                    "Title": "Backend Development",
-                    "Description": "Implementing powerful APIs and backend systems"
+                    "Title": "Reliable Backend Systems",
+                    "Description": "Develop secure backend systems and APIs that keep your application reliable, scalable, and easy to maintain."
                 },
                 "OptimizationConsulting": {
-                    "Title": "Optimization Consulting",
-                    "Description": "Technical consulting, performance optimization and enhancement, security enhancement"
+                    "Title": "Make Your Product Faster  ",
+                    "Description": "Improve your application's speed, security, architecture, and overall performance."
                 }
             },
-            "MyServicesText" : "My Services",
-            "Solutions" : "Complete solutions for your business",
-            "HowCanIHelpYou" : "I help you turn your ideas into digital products."
+            "MyServicesText" : "Services",
+            "Solutions" : "From the initial idea to a ready-to-use product",
+            "HowCanIHelpYou" : "Every project is different. I help you choose the right solution and deliver your product from design to deployment."
         }
     }
 }

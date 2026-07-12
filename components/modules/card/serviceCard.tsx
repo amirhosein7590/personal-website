@@ -18,7 +18,7 @@ function ServiceCard({ color, title, description, children }: ServiceCardProps) 
 
 
     return (
-        <div className="group bg-[rgba(17,23,38,0.7)] border-[rgba(255,255,255,0.05)] border backdrop-blur[12px] hover:bg-slate-800/60 p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 hover:shadow-xl flex flex-col justify-between min-h-70 border border-slate-800">
+        <div className="group bg-[rgba(17,23,38,0.7)] border-[rgba(255,255,255,0.05)] border backdrop-blur-[12px] hover:bg-slate-800/60 p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 hover:shadow-xl flex flex-col justify-between min-h-80 border border-slate-800">
             <div className="space-y-6">
                 <div className={`w-14 h-14 rounded-2xl bg-amber-500/10 ${color} flex items-center justify-center text-2xl group-hover:scale-110 transition-transform`}>
                     {children}
