@@ -38,6 +38,22 @@
             "MyServicesText" : "Services",
             "Solutions" : "From the initial idea to a ready-to-use product",
             "HowCanIHelpYou" : "Every project is different. I help you choose the right solution and deliver your product from design to deployment."
+        },
+        "Projects" : {
+            "MyProjectsText" : "Projects",
+            "ViewProject" : "View Project",
+            "Medad" : {
+                "Title" : "Medad System",
+                "ProjectType" : "Website",
+                "Description" : "A complete platform for school management with advanced features for attendance, reporting, student and teacher management, informing parents of their child's presence and absence at school with an SMS panel. The ability to communicate seamlessly between personnel in the system in an integrated manner to provide information and reduce costs.",
+                "ImageAlt" : "تصویر مدیریت کلاس در سامانه مداد"
+            },
+            "SingoLearn" : {
+                "Title" : "Singo Learn",
+                "ProjectType" : "Website",
+                "Description" : "Programming education website, ability to create courses, create course titles and discounts Manage instructors and students through the admin panel",
+                "ImageAlt" : "تصویر صفحه اصلی وبسایت سینگو لرن"
+            }
         }
     }
 }

@@ -3,6 +3,7 @@ import { setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import HeroHeader from "@/components/templates/heroHeader";
 import Services from "@/components/templates/services";
+import Projects from "@/components/templates/projects";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -20,6 +21,7 @@ export default function Home({ params }: Props) {
     <div className="wrapper flex flex-col">
       <HeroHeader locale={locale} />
       <Services />
+      <Projects locale={locale} />
     </div>
   );
 }

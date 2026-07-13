@@ -8,6 +8,9 @@ import { setRequestLocale } from "next-intl/server";
 import { TrpcProvider } from "@/providers/TrpcProvider";
 import { isRtl } from "@/utils/i18n/isRtl";
 import Navbar from "@/components/templates/navbar/Navbar";
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 const estedad = Estedad({
   src: [
