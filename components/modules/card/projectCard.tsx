@@ -16,7 +16,7 @@ export interface ProjectCardProps {
     className?: string;
     cardHeight?: number;
     locale: string,
-    viewProjectBtnText : string
+    viewProjectBtnText: string
 }
 
 function ProjectCard({
@@ -45,6 +45,7 @@ function ProjectCard({
     useEffect(() => {
         const img = imageRef.current;
         if (!img) return;
+        console.log(img.clientHeight);
 
         const updateDimensions = () => {
             if (imageContainerRef.current && img) {
@@ -85,20 +86,26 @@ function ProjectCard({
             },
         });
     }, [controls]);
-
     return (
         <div
             className={`
-        flex flex-col md:flex-row 
-        bg-[#111726] rounded-2xl overflow-hidden 
-        shadow-lg hover:shadow-2xl transition-shadow duration-300
+        flex
+        flex-col
+        bg-[#111726]
+        rounded-2xl
+        overflow-hidden
+        border border-slate-800
+        hover:border-slate-700
+        transition-all duration-300
+        hover:-translate-y-1
+        hover:shadow-xl
         ${className}
-      `}
+    `}
         >
             <div
+                style={{ maxHeight: `${cardHeight}px` }}
                 ref={imageContainerRef}
-                className="md:w-2/5 lg:w-2/5 relative overflow-hidden shrink-0"
-                style={{ height: `${cardHeight}px` }}
+                className="relative overflow-hidden"
                 onMouseEnter={handleImageMouseEnter}
                 onMouseLeave={handleImageMouseLeave}
             >
@@ -106,42 +113,117 @@ function ProjectCard({
                     ref={imageRef}
                     src={imageSrc}
                     alt={imageAlt || title}
-                    className="w-full h-auto block"
                     animate={controls}
                     initial={{ y: 0 }}
+                    className="w-full h-auto block"
                 />
+
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#111726] to-transparent" />
             </div>
 
-            <div className="flex-1 -mt-30 lg:mt-0 p-6 flex flex-col justify-between">
-                <div>
-                    <h3 className="text-xl md:text-2xl font-bold text-white">{title}</h3>
-                    <span className='inline-block text-sm mt-2'>{type}</span>
-                    <p className="text-gray-400 text-sm leading-relaxed my-5 md:mb-4">{description}</p>
+            <div className="flex flex-1 flex-col p-6">
 
-                    <div className="flex flex-wrap gap-2">
+                <div className="flex items-start justify-between gap-4">
+
+                    <h3 className="text-2xl font-bold text-white">
+                        {title}
+                    </h3>
+
+                    <span
+                        className="
+                        shrink-0
+                        rounded-full
+                        border
+                        border-blue-500/30
+                        bg-blue-500/10
+                        px-3
+                        py-1
+                        text-xs
+                        font-medium
+                        text-blue-300
+                    "
+                    >
+                        {type}
+                    </span>
+
+                </div>
+
+
+                <p className="
+                mt-5
+                text-sm
+                leading-7
+                text-slate-400
+                line-clamp-3
+            ">
+                    {description}
+                </p>
+
+
+                <div className="mt-6">
+
+                    <span className="text-xs uppercase tracking-wider text-slate-500">
+                        Tech Stack
+                    </span>
+
+                    <div className="mt-3 flex flex-wrap gap-2">
+
                         {technologies.map((tech, idx) => (
+
                             <span
                                 key={idx}
-                                className="bg-gray-700/40 text-gray-300 text-xs px-3 py-1 rounded-full backdrop-blur-sm border border-gray-700/30"
+                                className="
+                                rounded-full
+                                border
+                                border-slate-700
+                                bg-slate-800/50
+                                px-3
+                                py-1
+                                text-xs
+                                text-slate-300
+                            "
                             >
                                 {tech}
                             </span>
+
                         ))}
+
                     </div>
+
                 </div>
 
-                <div>
-                    {link && (
+
+                {link && (
+
+                    <div className="mt-auto pt-7">
+
                         <Button
                             href={link}
                             target="_blank"
-                            className="text-blue-500 cursor-pointer text-sm flex items-center"
+                            className="
+                            inline-flex
+                            items-center
+                            text-blue-400
+                            hover:text-blue-300
+                            transition-colors
+                        "
                         >
-                            {locale == "fa" ? <ArrowLeft className='w-4 h-4 mr-3 mt-0.5 order-2' /> : <ArrowRight className='w-4 h-4 ml-3 mt-0.5 order-2' />} {viewProjectBtnText}
+                            {viewProjectBtnText}
+
+                            {locale === "fa" ? (
+                                <ArrowLeft className="w-4 h-4 mr-2" />
+                            ) : (
+                                <ArrowRight className="w-4 h-4 ml-2" />
+                            )}
+
                         </Button>
-                    )}
-                </div>
+
+                    </div>
+
+                )}
+
             </div>
+
         </div>
     );
 }

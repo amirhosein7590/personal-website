@@ -51,7 +51,7 @@
             "SingoLearn" : {
                 "Title" : "Singo Learn",
                 "ProjectType" : "Website",
-                "Description" : "Programming education website, ability to create courses, create course titles and discounts Manage instructors and students through the admin panel",
+                "Description" : "Programming education website, ability to create courses, create chapters for courses, and manage teachers and students through the admin panel. Each student and teacher has a management dashboard built in, depending on their role.",
                 "ImageAlt" : "تصویر صفحه اصلی وبسایت سینگو لرن"
             }
         }
