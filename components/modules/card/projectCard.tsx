@@ -118,7 +118,6 @@ function ProjectCard({
                     className="w-full h-auto block"
                 />
 
-                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#111726] to-transparent" />
             </div>
 
             <div className="flex flex-1 flex-col p-6">
@@ -161,10 +160,6 @@ function ProjectCard({
 
 
                 <div className="mt-6">
-
-                    <span className="text-xs uppercase tracking-wider text-slate-500">
-                        Tech Stack
-                    </span>
 
                     <div className="mt-3 flex flex-wrap gap-2">
 

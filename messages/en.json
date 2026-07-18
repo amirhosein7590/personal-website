@@ -53,7 +53,20 @@
                 "ProjectType" : "Website",
                 "Description" : "Programming education website, ability to create courses, create chapters for courses, and manage teachers and students through the admin panel. Each student and teacher has a management dashboard built in, depending on their role.",
                 "ImageAlt" : "تصویر صفحه اصلی وبسایت سینگو لرن"
+            },
+            "RestaurantPro": {
+                "Title": "Restaurant Management System",
+                "ProjectType": "Desktop Application",
+                "Description": "A cloud-based multi-branch restaurant management platform designed to centralize branch operations, user management, inventory, orders, sales, and financial reporting. The system provides role-based access for administrators, branch managers, and cashiers while offering analytical dashboards, cloud synchronization, POS integration, and streamlined workflows for enterprise restaurant chains.",
+                "ImageAlt": "Dashboard of a multi-branch restaurant management system"
+            },
+            "Tashim": {
+                "Title": "Tashim | Project Costing ERP",
+                "ProjectType": "Desktop Application",
+                "Description": "An enterprise ERP solution for project financial management and cost accounting, designed to calculate project cost, profitability, and financial performance. The platform supports project and contract management, cost centers, timesheets, budgeting, accounts receivable, and intelligent overhead allocation while providing executive dashboards and analytical reports for data-driven decision making.",
+                "ImageAlt": "Dashboard of a Project Costing ERP system"
             }
+           
         }
     }
 }

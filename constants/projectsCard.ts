@@ -20,5 +20,37 @@ export const projectsCards: Omit<ProjectCardProps, "locale">[] = [
         technologies: ["React.js", "tailwind", "axios", "framer-motion"],
         link: "https://singo-learn-server.ir",
         viewProjectBtnText: "Projects.ViewProject"
+    },
+    {
+        type: "Projects.RestaurantPro.ProjectType",
+        title: "Projects.RestaurantPro.Title",
+        description: "Projects.RestaurantPro.Description",
+        imageSrc: "/images/projects/resturant-pro/admin-panel.png",
+        imageAlt: "Projects.RestaurantPro.ImageAlt",
+        technologies: [
+            "Next.js",
+            "Electron",
+            "Nextron",
+            "TypeScript",
+            "Tailwind CSS",
+            "Zustand"
+        ],
+        viewProjectBtnText: "Projects.ViewProject"
+    },
+    {
+        type: "Projects.Tashim.ProjectType",
+        title: "Projects.Tashim.Title",
+        description: "Projects.Tashim.Description",
+        imageSrc: "/images/projects/tashim/admin-panel.png",
+        imageAlt: "Projects.Tashim.ImageAlt",
+        technologies: [
+            "Next.js",
+            "Electron",
+            "Nextron",
+            "TypeScript",
+            "Tailwind CSS",
+            "Redux Toolkit"
+        ],
+        viewProjectBtnText: "Projects.ViewProject"
     }
 ]
