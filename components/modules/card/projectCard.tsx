@@ -45,7 +45,6 @@ function ProjectCard({
     useEffect(() => {
         const img = imageRef.current;
         if (!img) return;
-        console.log(img.clientHeight);
 
         const updateDimensions = () => {
             if (imageContainerRef.current && img) {
@@ -124,7 +123,7 @@ function ProjectCard({
 
                 <div className="flex items-start justify-between gap-4">
 
-                    <h3 className="text-2xl font-bold text-white">
+                    <h3 className="md:text-2xl font-bold text-white">
                         {title}
                     </h3>
 

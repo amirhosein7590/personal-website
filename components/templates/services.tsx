@@ -15,7 +15,7 @@ function Services() {
 
     }
     return (
-        <section aria-labelledby="services-title" className='services__container bg-slate-900/40 py-10 flex flex-col border-slate-800/40 px-8 mt-25 md:mt-50'>
+        <section aria-labelledby="services-conatiner" className='services__container bg-slate-900/40 py-10 flex flex-col border-slate-800/40 px-8 mt-25 md:mt-50'>
             <div className="services__header text-center max-w-3xl mx-auto flex flex-col gap-y-5">
                 <span className="font-bold tracking-widest text-accent-purple uppercase" data-key="servicesTitle">{t("Services.MyServicesText")}</span>
                 <h2 className="text-lg lg:text-3xl font-extrabold" data-key="servicesHeading">{t("Services.Solutions")}</h2>

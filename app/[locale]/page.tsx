@@ -4,6 +4,7 @@ import { routing } from "@/i18n/routing";
 import HeroHeader from "@/components/templates/heroHeader";
 import Services from "@/components/templates/services";
 import Projects from "@/components/templates/projects";
+import Tools from "@/components/templates/tools";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -22,6 +23,7 @@ export default function Home({ params }: Props) {
       <HeroHeader locale={locale} />
       <Services />
       <Projects locale={locale} />
+      <Tools />
     </div>
   );
 }
