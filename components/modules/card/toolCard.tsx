@@ -1,7 +1,7 @@
 import type { ToolCard } from "@/constants/toolsCard"
 import Image from "next/image"
 import { memo } from "react"
-import { cn } from "@/utils/ui/concatClasses"
+import { cn } from "@/lib/utils"
 
 function ToolCard({ icon, name }: ToolCard) {
     return (

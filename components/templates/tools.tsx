@@ -10,7 +10,7 @@ function Tools() {
                 <span className="font-bold tracking-widest text-accent-purple uppercase" data-key="toolsTitle">{t("Tools.ToolsText")}</span>
                 <h2 className="text-lg lg:text-3xl font-extrabold" data-key="toolsHeading">{t("Tools.Solutions")}</h2>
             </div>
-            <div className="tools__cards-container mt-15 flex gap-x-5 pr-5 justify-center animate-[infinite-scroll-x_10s_linear_infinite] md:animate-none">
+            <div className="tools__cards-container mt-15 flex gap-x-5 pr-5 justify-center animate-[infinite-scroll-x_s_linear_infinite] md:animate-none">
                 {toolsCard.map(toolCard => (
                     <ToolCard key={toolCard.name} icon={toolCard.icon} name={toolCard.name} />
                 ))}

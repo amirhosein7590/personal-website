@@ -3,7 +3,7 @@
 import { memo, startTransition, useCallback } from "react";
 import { motion } from "framer-motion";
 import { usePathname, useRouter } from "@/i18n/navigation";
-import { cn } from "@/utils/ui/concatClasses";
+import { cn } from "@/lib/utils";
 
 type Props = {
     locale: string;

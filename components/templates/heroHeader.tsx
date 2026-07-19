@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Button from '../modules/button'
-import { cn } from '@/utils/ui/concatClasses'
+import { cn } from '@/lib/utils'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 
 function HeroHeader({ locale }: { locale: string }) {
