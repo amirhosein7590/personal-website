@@ -1,6 +1,7 @@
 import { useTranslations } from 'next-intl'
 import { toolsCard } from '@/constants/toolsCard'
 import ToolCard from '../modules/card/toolCard'
+import Marquee from '../modules/marquee'
 
 function Tools() {
     const t = useTranslations("HomePage")
@@ -10,10 +11,15 @@ function Tools() {
                 <span className="font-bold tracking-widest text-accent-purple uppercase" data-key="toolsTitle">{t("Tools.ToolsText")}</span>
                 <h2 className="text-lg lg:text-3xl font-extrabold" data-key="toolsHeading">{t("Tools.Solutions")}</h2>
             </div>
-            <div className="tools__cards-container mt-15 flex gap-x-5 pr-5 justify-center animate-[infinite-scroll-x_s_linear_infinite] md:animate-none">
-                {toolsCard.map(toolCard => (
-                    <ToolCard key={toolCard.name} icon={toolCard.icon} name={toolCard.name} />
-                ))}
+            <div className="tools__cards-container mt-15 relative flex w-full shrink-0 flex-col items-center justify-center overflow-hidden">
+                <Marquee pauseOnHover className="[--duration:30s]">
+                    {toolsCard.map((toolCard) => (
+                        <ToolCard key={toolCard.name} {...toolCard} />
+                    ))}
+                </Marquee>
+
+                <div className="from-background pointer-events-none absolute inset-y-0 left-0 w-1/4 blur-xl"></div>
+                <div className="from-background pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-transparent blur-xl"></div>
             </div>
         </section>
     )
