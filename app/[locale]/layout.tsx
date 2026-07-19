@@ -56,7 +56,7 @@ export default async function RootLayout({ children, params }: Props) {
     <html
       lang={locale}
       dir={isRTL ? 'rtl' : 'ltr'}
-      className={`${isRTL ? estedad.className : inter.className}`}
+      className={`${isRTL ? estedad.className : inter.className} scroll-smooth`}
     >
       <body className="bg-bg-dark overflow-x-hidden">
         <TrpcProvider>

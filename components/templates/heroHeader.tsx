@@ -7,7 +7,14 @@ import { cn } from '@/utils/ui/concatClasses'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 
 function HeroHeader({ locale }: { locale: string }) {
-    const t = useTranslations("HomePage")
+    const t = useTranslations("HomePage");
+    const scrollToProjectSection = () => {
+        if (window) {
+            window.location.hash = ""
+            window.location.hash = "#projects"
+        }
+    }
+
     return (
         <section aria-labelledby="hero-title" className='hero-header__container max-w-7xl mx-auto mt-15 lg:mt-20 flex flex-col lg:flex-row lg:justify-between flex-wrap lg:flex-nowrap'>
             <div className="hero-header__main flex flex-col gap-y-5 w-full lg:w-1/2">
@@ -19,7 +26,7 @@ function HeroHeader({ locale }: { locale: string }) {
                 <p className='text-sm lg:text-[16px] text-center lg:text-start mt-4 text-gray-400'>{t("HeroHeader.WhatIDo")}</p>
 
                 <div className="buttons-container flex flex-wrap flex-col md:flex-nowrap md:flex-row mt-5 md:mt-10 justify-center gap-x-8 items-center">
-                    <Button className={cn(
+                    <Button onClick={scrollToProjectSection} className={cn(
                         "text-sm lg:text-[16px] py-3 px-8 bg-transparent border w-full mt-5 lg:mt-0 lg:w-1/2 border-white",
                         "rounded-md flex justify-center items-center cursor-pointer"
                     )}>{t("HeroHeader.Buttons.ViewProjects")}</Button>
