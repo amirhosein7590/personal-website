@@ -5,6 +5,7 @@ import HeroHeader from "@/components/templates/heroHeader";
 import Services from "@/components/templates/services";
 import Projects from "@/components/templates/projects";
 import Tools from "@/components/templates/tools";
+import ColabrationProcess from "@/components/templates/colaborationProcess";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -24,6 +25,7 @@ export default function Home({ params }: Props) {
       <Services />
       <Projects locale={locale} />
       <Tools />
+      <ColabrationProcess />
     </div>
   );
 }

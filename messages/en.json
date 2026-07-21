@@ -71,6 +71,32 @@
         "Tools" : {
             "ToolsText" : "Technologies",
             "Solutions" : "I create the best solutions with the best tools."
+        },
+        "ColaborationProcess" : {
+            "ColaborationText" : "Colabration Process",
+            "ColaborationDescription" : "We are with you from idea to product.",
+            "steps": {
+                "1": {
+                    "stepNumber" : "1",
+                    "Title": "Consultation & Analysis",
+                    "Description": "Reviewing your idea and business, analyzing requirements, and providing solutions"
+                },
+                "2": {
+                    "stepNumber" : "2",
+                    "Title": "Design & Planning",
+                    "Description": "UI/UX design, creating a timeline, and planning for project completion"
+                 },
+                "3": {
+                    "stepNumber" : "3",
+                    "Title": "Development & Implementation",
+                    "Description": "Coding and implementation, testing, and ensuring the website/software functions correctly"
+                },
+                "4": {
+                    "stepNumber" : "4",
+                    "Title": "Delivery & Support",
+                    "Description": "Project delivery, training for usage, and free support"
+                }
+            }
         }
     }
 }

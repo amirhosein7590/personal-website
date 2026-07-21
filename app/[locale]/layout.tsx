@@ -54,6 +54,7 @@ export default async function RootLayout({ children, params }: Props) {
 
   return (
     <html
+      data-scroll-behavior="smooth"
       lang={locale}
       dir={isRTL ? 'rtl' : 'ltr'}
       className={`${isRTL ? estedad.className : inter.className} scroll-smooth`}
