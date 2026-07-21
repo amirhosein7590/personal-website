@@ -1,4 +1,4 @@
-import { CollabrationCard } from '@/constants/collaborationsCard'
+import { CollabrationCard } from '@/constants/collaborations'
 import { useTranslations } from 'next-intl'
 import { memo } from 'react'
 

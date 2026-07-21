@@ -1,7 +1,7 @@
 import { ChartLine, MonitorSmartphone, Server, Tangent } from 'lucide-react';
 import { useTranslations } from 'next-intl'
-import { servicesCard, TServiceCard, Icon } from '@/constants/servicesCard';
-import ServiceCard from '../modules/card/serviceCard';
+import { servicesCard, TServiceCard, Icon } from '@/constants/services';
+import ServiceCard from '../../modules/card/serviceCard';
 
 type Icons = Record<Icon, React.ReactNode>
 

@@ -97,6 +97,42 @@
                     "Description": "Project delivery, training for usage, and free support"
                 }
             }
+        },
+        "Testimonials": {
+        "1": {
+        "name": "Ali Rezaei",
+        "content": "We turned to him to design a management panel for our internal projects. Despite its complexity, he delivered the system in a way that was easy for everyone on the team to use."
+    },
+    "2": {
+        "name": "Sara Mohammadi",
+        "content": "We were looking for a meticulous developer to implement our store designs. He not only coded the designs without the slightest deviation, but also made some practical suggestions to improve speed and user experience that really made a positive impact on the final output."
+    },
+    "3": {
+        "name": "Reza Karimi",
+        "content": "He is a very experienced, professional, caring and very sensitive person. He made excellent suggestions to advance the project, met our needs and gained our full confidence for future cooperation."
+    },
+    "4": {
+        "name": "Zahra Ahmadi",
+        "content": "At first, I was skeptical about choosing them, but they completed the project in the best possible way and in the shortest possible time. Their responsiveness is excellent and they quickly fixed any issues I had. The fact that they have both WordPress knowledge and coding knowledge made the result very good. Looking forward to working with them again."
+    },
+    "5": {
+        "name": "Mohammad Rahimi",
+        "content": "Mr. Gholami is very punctual, very fast, very ethical, professional, I am completely satisfied with him. I would be happy to work with him again."
+    },
+    "6": {
+        "name": "Negar Hosseini",
+        "content": "Their work is completely correct, they are both ethical and know their job, they carry out the work without any hassle or worry. That's what's important to me. Hoping for more cooperation."
+    },
+    "7": {
+        "name": "Amir Hosseini",
+        "content": "We needed a thorough technical review before investing in a startup. His report was so comprehensive and fair that it made our decision-making process completely transparent. His professionalism was evident throughout the entire process."
+    },
+    "8": {
+        "name": "Maryam Goodarzi",
+        "content": "I chose them out of all the freelancers because they are very respectful, friendly, and professional. But I will definitely be defining the next project for them. My suggestion is to trust them, you won't regret it."
+    },
+    "title": "Testimonials",
+    "subtitle": "Client experiences"
         }
     }
 }

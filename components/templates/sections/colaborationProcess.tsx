@@ -1,13 +1,13 @@
-import { collabrationCards } from '@/constants/collaborationsCard'
+import { collabrationCards } from '@/constants/collaborations'
 import { useTranslations } from 'next-intl'
 import { memo } from 'react'
-import ColbrationCard from '../modules/card/colaborationCard'
+import ColbrationCard from '../../modules/card/colaborationCard'
 
 function ColabrationProcess() {
     const t = useTranslations("HomePage")
 
     return (
-        <section className="bg-slate-900/40 py-16 md:py-20 border-slate-800/40 px-4 md:px-8 mt-20 md:mt-40 mb-100">
+        <section className="bg-slate-900/40 py-16 md:py-20 border-slate-800/40 px-4 md:px-8 mt-20 md:mt-40">
             <div className="text-center max-w-3xl mx-auto flex flex-col gap-y-4">
                 <span className="font-bold tracking-widest text-accent-purple uppercase text-sm">
                     {t("ColaborationProcess.ColaborationText")}

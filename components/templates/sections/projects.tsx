@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import { useTranslations } from 'next-intl'
-import ProjectsSlider from './projectsSlider';
+import ProjectsSlider from '../slider/projectsSlider';
 
 function Projects({ locale }: { locale: string }) {
     const t = useTranslations("HomePage");

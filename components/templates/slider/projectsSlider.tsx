@@ -3,8 +3,8 @@
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
-import { projectsCards } from '@/constants/projectsCard';
-import ProjectCard from '../modules/card/projectCard'
+import { projectsCards } from '@/constants/projects';
+import ProjectCard from '../../modules/card/projectCard'
 import { useTranslations } from 'next-intl';
 import { memo } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';

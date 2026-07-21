@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl'
-import { toolsCard } from '@/constants/toolsCard'
-import ToolCard from '../modules/card/toolCard'
-import Marquee from '../modules/marquee'
+import { toolsCard } from '@/constants/tools'
+import ToolCard from '../../modules/card/toolCard'
+import Marquee from '../../modules/marquee'
 
 function Tools() {
     const t = useTranslations("HomePage")
