@@ -1,0 +1,1 @@
+export const isLangPersian = (locale: string) => locale == "fa" ? true : false

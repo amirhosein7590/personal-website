@@ -10,7 +10,7 @@ import { memo } from "react";
 const swiperConfig = {
     modules: [Autoplay, Navigation],
     spaceBetween: 24,
-    slidesPerView: 1    ,
+    slidesPerView: 1,
     breakpoints: {
         640: { spaceBetween: 20 },
         768: { spaceBetween: 24 },
@@ -31,10 +31,10 @@ const swiperConfig = {
 
 function TestimonialsSlider() {
     return (
-        <div className="relative w-full">
-            <Swiper {...swiperConfig} className="w-full">
+        <div className="relative w-full mt-auto">
+            <Swiper {...swiperConfig} className="w-full rounded-2xl">
                 {testimonials.map((testimonial, index) => (
-                    <SwiperSlide key={index}>
+                    <SwiperSlide className="rounded-2xl" key={index}>
                         <TestimonialCard {...testimonial} />
                     </SwiperSlide>
                 ))}

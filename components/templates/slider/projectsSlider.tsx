@@ -36,8 +36,8 @@ function ProjectsSlider({ locale }: { locale: string }) {
                 clickable: true,
             }}
             navigation={{
-                nextEl: '.swiper-navigation__next-btn',
-                prevEl: ".swiper-navigation__prev-btn",
+                nextEl: '.projects-next',
+                prevEl: ".projects-prev",
                 enabled: true
             }}
             modules={[Navigation]}
@@ -48,11 +48,11 @@ function ProjectsSlider({ locale }: { locale: string }) {
                     <ProjectCard className="h-full w-full" viewProjectBtnText={t(projectCard.viewProjectBtnText)} locale={locale} title={t(projectCard.title)} description={t(projectCard.description)} imageAlt={t(projectCard.imageAlt || "")} link={projectCard.link} technologies={projectCard.technologies} type={t(projectCard.type)} imageSrc={projectCard.imageSrc} />
                 </SwiperSlide>
             ))}
-            <div className="swiper-navigation__next-btn hidden md:block cursor-pointer absolute top-1/2 right-5 z-100">
-                <ChevronRight className='text-blue-600' />
+            <div className="projects-prev absolute top-1/2 left-0 -translate-y-1/2 z-10 cursor-pointer bg-slate-800 p-2 rounded-full border border-slate-700 hidden md:flex items-center justify-center transition">
+                <ChevronLeft className="text-accent-purple" size={24} />
             </div>
-            <div className="swiper-navigation__prev-btn hidden md:block cursor-pointer text-white absolute top-1/2 z-100 left-5">
-                <ChevronLeft className='text-blue-600' />
+            <div className="projects-next absolute top-1/2 right-0 -translate-y-1/2 z-10 cursor-pointer bg-slate-800 p-2 rounded-full border border-slate-700 hidden md:flex items-center justify-center transition">
+                <ChevronRight className="text-accent-purple" size={24} />
             </div>
 
         </Swiper>

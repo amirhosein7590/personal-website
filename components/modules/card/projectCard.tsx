@@ -2,7 +2,7 @@
 
 import { useRef, useEffect, useState, useCallback, memo } from 'react';
 import { motion, useAnimation } from 'framer-motion';
-import Button from '../button';
+import { Button } from '../button';
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 
 export interface ProjectCardProps {
@@ -199,6 +199,7 @@ function ProjectCard({
                             items-center
                             text-blue-400
                             hover:text-blue-300
+                            bg-transparent
                             transition-colors
                         "
                         >

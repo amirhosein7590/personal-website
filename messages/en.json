@@ -133,6 +133,43 @@
     },
     "title": "Testimonials",
     "subtitle": "Client experiences"
+        },
+        "Reservation" : {
+            "ConsultationReserve" : "Consultation Reserve"
+        }
+    },
+    "Global" : {
+        "DatePicker" : {
+            "Today" : "Today"
+        },
+        "Confirm" : "OK",
+        "Cancel" : "Cancel",
+        "Minute" : "minute",
+        "Hour" : "hour"
+    },
+    "Form" : {
+        "validation": {
+            "fullName": {
+              "required" : "full name is required",
+              "min": "Full name must be at least 3 characters"
+            },
+            "phoneNumber": {
+              "required" : "phone number is required",
+              "invalid": "Invalid phone number (must start with 09, 021, or 051 and have 11 digits)"
+            },
+            "title": {
+              "required" : "title is required",
+              "min": "Subject must be at least 5 characters"
+            },
+            "description" : {
+                "min" : "description must be at least 5 characters"
+            },
+            "preferredTime": {
+              "required": "Time is required"
+            },
+            "preferredDate" : {
+                "required" : "date is required"
+            }
         }
     }
 }

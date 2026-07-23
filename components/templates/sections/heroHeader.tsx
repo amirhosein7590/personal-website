@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
-import Button from '../../modules/button'
+import { Button } from '../../modules/button'
 import { cn } from '@/lib/utils'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 
@@ -14,6 +14,14 @@ function HeroHeader({ locale }: { locale: string }) {
             window.location.hash = "#projects"
         }
     }
+
+    const scrollToReservationSection = () => {
+        if (window) {
+            window.location.hash = ""
+            window.location.hash = "#reservation"
+        }
+    }
+
 
     return (
         <section aria-labelledby="hero-title" className='hero-header__container max-w-7xl mx-auto mt-15 lg:mt-20 flex flex-col lg:flex-row lg:justify-between flex-wrap lg:flex-nowrap'>
@@ -27,12 +35,12 @@ function HeroHeader({ locale }: { locale: string }) {
 
                 <div className="buttons-container flex flex-wrap flex-col md:flex-nowrap md:flex-row mt-5 md:mt-10 justify-center gap-x-8 items-center">
                     <Button onClick={scrollToProjectSection} className={cn(
-                        "text-sm lg:text-[16px] py-3 px-8 bg-transparent border w-full mt-5 lg:mt-0 lg:w-1/2 border-white",
+                        "text-sm lg:text-[16px] py-3! px-8! bg-transparent border w-full mt-5 lg:mt-0 lg:w-1/2 border-white",
                         "rounded-md flex justify-center items-center cursor-pointer"
                     )}>{t("HeroHeader.Buttons.ViewProjects")}</Button>
 
-                    <Button className={cn(
-                        "text-sm lg:text-[16px] py-3 px-8 rounded-md flex w-full mt-5 lg:mt-0 lg:w-1/2 justify-center items-center",
+                    <Button onClick={scrollToReservationSection} className={cn(
+                        "text-sm lg:text-[16px] py-3! px-8! rounded-md flex w-full mt-5 lg:mt-0 lg:w-1/2 justify-center items-center",
                         "bg-accent-purple cursor-pointer"
                     )}>{t("HeroHeader.Buttons.StartProject")}
                         {locale == "fa" ? <ArrowLeft aria-hidden="true" className='mr-3 w-4 h-4 mt-0.5' /> : <ArrowRight aria-hidden="true" className='ml-3 w-4 h-4 mt-0.5' />}
