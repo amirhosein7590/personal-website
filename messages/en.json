@@ -172,7 +172,7 @@
             },
             "otp" : {
                 "required" : "Verification code is required.",
-                "mix" : "The verification code must be six digits."
+                "min" : "The verification code must be six digits."
             }
         }
     }
