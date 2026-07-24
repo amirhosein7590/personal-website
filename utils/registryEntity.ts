@@ -1,5 +1,5 @@
 import { reservationFields, reservationSchema } from "@/constants/form/reservation";
-
+import { otpFields, otpSchema } from "@/constants/form/otp"
 
 export type InputProps = {
     type: string,
@@ -8,7 +8,8 @@ export type InputProps = {
     persianPlaceholder: string,
     className?: string,
     triggerClassName?: string,
-    otpContainerClassName ?: string
+    otpContainerClassName?: string,
+    errorClass ?: string
 }
 
 
@@ -16,6 +17,10 @@ export const registryEntity = {
     Reservation: {
         schema: reservationSchema,
         fields: reservationFields
+    },
+    otp: {
+        fields: otpFields,
+        schema: otpSchema
     }
 } as const
 
