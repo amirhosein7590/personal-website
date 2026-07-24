@@ -87,9 +87,8 @@ function TimePicker({
 
                     )}
                 >
-                    {/* <span className="text-sm">{placeHolderGenerator()}</span> */}
                     {placeHolderGenerator()}
-                    {time.hour && time.minute ? (
+                    {value ? (
                         <div
                             className={`absolute ${isLangPersian(locale) ? "left-3" : "right-3"} top-1/2 -translate-y-1/2 z-10 cursor-pointer p-1 hover:opacity-70`}
                             onClick={(e) => resetTimeHandler(e)}
