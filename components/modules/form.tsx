@@ -71,7 +71,8 @@ function Form<T extends EntityNames>({
                                 placeholder,
                                 ...input,
                                 value: (field.value as string | Date),
-                                onChange: field.onChange
+                                onChange: field.onChange,
+                                error: error
                             })}
                         />
                         {error && error?.message && <span className="text-red-500 inline-block mt-2 text-xs">{t(error.message)}</span>}

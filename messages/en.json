@@ -169,6 +169,10 @@
             },
             "preferredDate" : {
                 "required" : "date is required"
+            },
+            "otp" : {
+                "required" : "Verification code is required.",
+                "mix" : "The verification code must be six digits."
             }
         }
     }

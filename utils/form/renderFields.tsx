@@ -3,6 +3,8 @@ import { DatePicker } from "@/components/modules/calendar/DatePicker"
 import TimePicker from "@/components/modules/timePicker"
 import TextArea from "@/components/modules/textArea"
 import Input from "@/components/modules/input"
+import InputOtp from "@/components/modules/inputOtp"
+import { FieldError } from "react-hook-form"
 
 type Field = {
     value: string | Date,
@@ -12,7 +14,8 @@ type Field = {
     className?: string,
     placeholder: string,
     locale: string,
-    triggerClassName?: string
+    triggerClassName?: string,
+    error: FieldError | undefined
 }
 
 export function renderFields(field: Field) {
@@ -43,6 +46,15 @@ export function renderFields(field: Field) {
                 value={field.value as string}
                 className={field.className}
                 placeholder={field.placeholder}
+            />
+        }
+        case "otp": {
+            const isInvalid = field.error?.message ? true : false
+            return <InputOtp
+                maxLength={6}
+                isInvalid={isInvalid}
+                value={field.value as string}
+                onChange={field.onChange}
             />
         }
         default: {
