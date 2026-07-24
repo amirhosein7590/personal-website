@@ -11,5 +11,6 @@ export const otpFields: InputProps[] = [
         name: "code",
         englishPlaceholder: "verification code",
         persianPlaceholder: "کد تایید",
+        otpContainerClassName: "mt-10"
     }
 ]

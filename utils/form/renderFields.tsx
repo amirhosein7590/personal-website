@@ -15,7 +15,8 @@ type Field = {
     placeholder: string,
     locale: string,
     triggerClassName?: string,
-    error: FieldError | undefined
+    error: FieldError | undefined,
+    otpContainerClassName ?: string
 }
 
 export function renderFields(field: Field) {
@@ -55,6 +56,7 @@ export function renderFields(field: Field) {
                 isInvalid={isInvalid}
                 value={field.value as string}
                 onChange={field.onChange}
+                containerClassName={field.otpContainerClassName}
             />
         }
         default: {
