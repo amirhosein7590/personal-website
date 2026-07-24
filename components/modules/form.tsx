@@ -1,6 +1,6 @@
 "use client"
 
-import { registryEntity, Entities } from "@/utils/registryEntity"
+import { registryEntity, EntityNames } from "@/utils/registryEntity"
 import { useForm, Controller } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Button } from "@base-ui/react"
@@ -8,18 +8,25 @@ import { cn } from "@/lib/utils"
 import { isLangPersian } from "@/utils/i18n/isLangPersian"
 import { renderFields } from "@/utils/form/renderFields"
 import { useTranslations } from "next-intl"
+import z from "zod"
+import { memo } from "react"
 
-type FormProps = {
-    entityName: Entities,
-    submitFn: (data: unknown) => void,
+type GetEntityData<T extends EntityNames> = z.infer<
+    (typeof registryEntity)[T]['schema']
+>;
+
+type FormProps<T extends EntityNames> = {
+    entityName: T,
+    submitFn: (data: GetEntityData<T>) => void,
     formClass?: string,
     submitBtnClass?: string,
     inputsContainerClass?: string
     submitBtnText: string,
     locale: string,
+    isPending: boolean
 }
 
-function Form({
+function Form<T extends EntityNames>({
     entityName,
     submitFn,
     submitBtnText,
@@ -27,17 +34,22 @@ function Form({
     inputsContainerClass,
     submitBtnClass,
     locale,
-}: FormProps) {
-    const { fields, schema } = registryEntity[entityName]
+    isPending = false
+}: FormProps<T>) {
+
+    const entity = registryEntity[entityName];
+    const { fields, schema } = entity;
+
+    type FormData = z.infer<typeof schema>
     const t = useTranslations("Form")
-    const { control, formState: { errors }, handleSubmit } = useForm({
+    const { control, formState: { errors }, handleSubmit } = useForm<FormData>({
         mode: "onChange",
         resolver: zodResolver(schema)
     })
 
-    const onSubmit = (data: unknown) => {
-        console.log(data);
-        submitFn(data)
+
+    const onSubmit = (data: FormData) => {
+        (submitFn as (data: FormData) => void)(data);
     }
 
     return (
@@ -48,11 +60,12 @@ function Form({
             )}>
                 {fields.map(input => {
                     const placeholder = isLangPersian(locale) ? input.persianPlaceholder : input.englishPlaceholder;
-                    const error = errors[input.name]
+                    const fieldName = input.name as keyof FormData;
+                    const error = errors[fieldName];
                     return <div key={input.name}>
                         <Controller
                             control={control}
-                            name={input.name}
+                            name={fieldName}
                             render={({ field }) => renderFields({
                                 locale,
                                 placeholder,
@@ -70,10 +83,10 @@ function Form({
                     "text-sm lg:text-[16px] py-3! px-8! bg-transparent border w-full mx-auto mt-5 lg:mt-0 border-white",
                     "rounded-md flex justify-center items-center cursor-pointer",
                     submitBtnClass
-                )}>{submitBtnText}</Button>
+                )}>{isPending ? "در حال ارسال" : submitBtnText}</Button>
             </div>
         </form>
     )
 }
 
-export default Form
+export default memo(Form)

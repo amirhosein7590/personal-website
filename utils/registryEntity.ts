@@ -1,7 +1,5 @@
-import z from "zod";
 import { reservationFields, reservationSchema } from "@/constants/form/reservation";
 
-export type Entities = "Reservation";
 
 export type InputProps = {
     type: string,
@@ -12,12 +10,12 @@ export type InputProps = {
     triggerClassName?: string,
 }
 
-export const registryEntity: Record<Entities, {
-    schema: z.ZodObject<any>
-    fields: InputProps[]
-}> = {
+
+export const registryEntity = {
     Reservation: {
         schema: reservationSchema,
         fields: reservationFields
     }
-}
+} as const
+
+export type EntityNames = keyof typeof registryEntity;
