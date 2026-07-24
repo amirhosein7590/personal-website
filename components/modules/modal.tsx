@@ -41,7 +41,7 @@ function ModalComponent({ modal, close, update }: ModalProps) {
                     style={{ direction: "ltr" }}
                     >
                     {typeof Header == "function" ? <Header /> : Header}
-                    <DialogTitle className="!mr-10">{title}</DialogTitle>
+                    <DialogTitle className="!mr-10 text-sm">{title}</DialogTitle>
                 </DialogHeader>
 
                 {typeof Content == "function" ? <Content
