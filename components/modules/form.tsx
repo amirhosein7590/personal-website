@@ -18,6 +18,7 @@ type GetEntityData<T extends EntityNames> = z.infer<
 type FormProps<T extends EntityNames> = {
     entityName: T,
     submitFn: (data: GetEntityData<T>) => void,
+    afterSubmitFn?: (data: GetEntityData<T>) => void,
     formClass?: string,
     submitBtnClass?: string,
     inputsContainerClass?: string
@@ -34,7 +35,8 @@ function Form<T extends EntityNames>({
     inputsContainerClass,
     submitBtnClass,
     locale,
-    isPending = false
+    isPending = false,
+    afterSubmitFn
 }: FormProps<T>) {
 
     const entity = registryEntity[entityName];
@@ -48,8 +50,13 @@ function Form<T extends EntityNames>({
     })
 
 
-    const onSubmit = (data: FormData) => {
-        (submitFn as (data: FormData) => void)(data);
+    const onSubmit = async (data: FormData) => {
+        if (afterSubmitFn) {
+            await (submitFn as (data: FormData) => void)(data);
+            (afterSubmitFn as (data: FormData) => void)(data)
+            return
+        }
+        (submitFn as (data: FormData) => void)(data)
     }
 
     return (

@@ -8,6 +8,7 @@ export type InputProps = {
     persianPlaceholder: string,
     className?: string,
     triggerClassName?: string,
+    otpContainerClassName ?: string
 }
 
 
