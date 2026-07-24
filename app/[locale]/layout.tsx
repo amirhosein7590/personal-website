@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { setRequestLocale } from "next-intl/server";
 import { TrpcProvider } from "@/providers/TrpcProvider";
+import ModalProvider from "@/providers/ModalProvider";
 import { isRtl } from "@/utils/i18n/isRtl";
 import Navbar from "@/components/templates/navbar/Navbar";
 import 'swiper/css';
@@ -63,9 +64,11 @@ export default async function RootLayout({ children, params }: Props) {
         <TrpcProvider>
           <NextIntlClientProvider>
             <Navbar locale={locale} />
-            <main className="text-white px-4 overflow-x-hidden lg:px-0">
-              {children}
-            </main>
+            <ModalProvider>
+              <main className="text-white px-4 overflow-x-hidden lg:px-0">
+                {children}
+              </main>
+            </ModalProvider>
           </NextIntlClientProvider>
         </TrpcProvider>
       </body>
