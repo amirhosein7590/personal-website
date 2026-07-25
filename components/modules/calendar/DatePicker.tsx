@@ -7,6 +7,7 @@ import { Button } from "../button";
 import { Calendar1Icon, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { isLangPersian } from "@/utils/i18n/isLangPersian";
+import dateToPersianDateString from "@/utils/dateToPersianDateString";
 
 type PersianCalendarProps = {
     className?: string,
@@ -31,13 +32,7 @@ export function DatePicker({
 
     const placeHolderGenerator = useCallback(() => {
         if (value) {
-            const selectedDate = new Date(value).toLocaleDateString(isLangPersian(locale) ? "fa-IR" : "en", {
-                weekday: "long",
-                year: "numeric",
-                month: "long",
-                day: "numeric"
-            })
-            return isLangPersian(locale) ? selectedDate.split(" ").reverse().join(" ").replace(",", "") : selectedDate
+            return dateToPersianDateString(locale, new Date(value))
         } else return placeholder
     }, [value, locale, placeholder])
 
