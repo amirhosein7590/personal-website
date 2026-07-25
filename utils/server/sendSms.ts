@@ -2,15 +2,7 @@
 
 
 type SmsResponse = {
-    Success: boolean,
-    ErrorCode: number | string | null,
-    Error: string | null,
-    Result: {
-        UserTraceId: string | null,
-        Id: number,
-        Sender: number,
-        FinalText: string
-    }[]
+    success: boolean
 }
 
 export type SendSms = (data: Record<string, string>) => Promise<SmsResponse>
