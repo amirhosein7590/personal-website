@@ -62,7 +62,6 @@ function CountdownTimer({
     };
 
     const handleResend = () => {
-        console.log("ine here");
         mutate(bodyReq, {
             onSuccess: response => {
                 toast.success(response.message)
