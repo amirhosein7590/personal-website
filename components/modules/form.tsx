@@ -29,7 +29,8 @@ type FormProps<T extends EntityNames> = {
     submitBtnText: string,
     locale: string,
     isPending: boolean,
-    defaultValues?: GetEntityData<T>
+    defaultValues?: GetEntityData<T>,
+    children?: React.ReactNode
 }
 
 function Form<T extends EntityNames>({
@@ -42,7 +43,8 @@ function Form<T extends EntityNames>({
     locale,
     isPending = false,
     afterSubmitFn,
-    defaultValues
+    defaultValues,
+    children
 }: FormProps<T>) {
 
     const entity = registryEntity[entityName];
@@ -70,17 +72,13 @@ function Form<T extends EntityNames>({
 
     }, [])
 
-    useEffect(() => {
-        console.log("errors => ", errors);
-    }, [errors, submitCount])
-
 
     const onSubmit = async (data: FormData) => {
 
         if (afterSubmitFn) {
             try {
                 const res = await (submitFn as (data: FormData) => SubmitRes)(data);
-                (afterSubmitFn as (data: FormData , res ?: Awaited<SubmitRes>) => void)(data,res)
+                (afterSubmitFn as (data: FormData, res?: Awaited<SubmitRes>) => void)(data, res)
                 if (res) {
                     toast.success(res.message)
                 }
@@ -122,6 +120,7 @@ function Form<T extends EntityNames>({
                     </div>
                 })}
             </div>
+            {children}
             <div className="button-container w-full">
                 <Button type="submit" className={cn(
                     "py-3! px-8! bg-transparent border w-full mx-auto mt-5 border-white",
