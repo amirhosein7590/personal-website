@@ -35,7 +35,6 @@ const reservationRouter = router({
                         throw new TRPCError({
                             code: "BAD_REQUEST",
                             message: t("Failed.TooManyPendingReservation"),
-                            cause: { success: false }
                         })
                     }
 
@@ -53,7 +52,6 @@ const reservationRouter = router({
                             throw new TRPCError({
                                 code: "BAD_REQUEST",
                                 message: t("Failed.OtpAvailable"),
-                                cause: { success: false }
                             })
                         } else {
                             // 2.2 if otp exist and is expired , delete it and continue process
@@ -66,21 +64,20 @@ const reservationRouter = router({
 
                     // 2.3 If everything was correct regarding the otp validation, we will generate a new otp and send it.
 
-                    const code = String(crypto.randomInt(999999))
-                    const codeExpTime = Number(process.env.OTP_EXPIRE_TIME)
+                    const code = String(crypto.randomInt(111111, 999999))
+                    const codeExpTime = Date.now() + Number(process.env.OTP_EXPIRE_TIME)
                     const smsResult = await sendSms({
                         patternKey: process.env.OTP_PATTERN_KEY as string,
                         phoneNumber: input.phoneNumber,
                         param1: code
                     })
 
-                    if (!smsResult.Success) {
+                    if (!smsResult.success) {
                         // 2.4 If there is a problem sending the OTP to the user number (such as unavailability of the service), stop the process.
 
                         throw new TRPCError({
                             code: "SERVICE_UNAVAILABLE",
                             message: t("Failed.SendOtp"),
-                            cause: { success: false }
                         })
                     }
                     await ctx.prisma.otp.create({
@@ -123,16 +120,17 @@ const reservationRouter = router({
 
                     return {
                         message: t("Success.SendOtp"),
-                        cause: { success: true }
+                        phoneNumber: input.phoneNumber
                     }
 
                 } catch (error) {
-                    console.log(error);
+                    if (error instanceof TRPCError) {
+                        throw error;
+                    }
 
                     throw new TRPCError({
                         code: "SERVICE_UNAVAILABLE",
                         message: t("Failed.ServerError"),
-                        cause: { success: false }
                     })
                 }
             }),
@@ -159,7 +157,6 @@ const reservationRouter = router({
                     throw new TRPCError({
                         code: "NOT_FOUND",
                         message: t("Failed.OtpExpired"),
-                        cause: { success: false }
                     })
                 }
 
@@ -169,7 +166,6 @@ const reservationRouter = router({
                     throw new TRPCError({
                         code: "BAD_REQUEST",
                         message: t("Failed.OtpIsInCorrect"),
-                        cause: { success: false }
                     })
                 }
 
@@ -197,24 +193,31 @@ const reservationRouter = router({
                         }
                     })
 
+                    await ctx.prisma.otp.delete({
+                        where: {
+                            id: otp.id
+                        }
+                    })
+
                     return {
                         message: t("Success.ConsultationBooked"),
-                        cause: { success: true }
                     }
                 }
 
                 throw new TRPCError({
                     code: "NOT_FOUND",
                     message: t("Failed.ErrorInBooking"),
-                    cause: { success: false }
                 })
 
             } catch (error) {
-                console.log(error);
+
+                if (error instanceof TRPCError) {
+                    throw error;
+                }
+
                 throw new TRPCError({
                     code: "SERVICE_UNAVAILABLE",
                     message: t("Failed.ServerError"),
-                    cause: { success: false }
                 })
             }
         })
