@@ -9,6 +9,7 @@ import { ModalCtx } from "@/providers/ModalProvider";
 import { type OtpSchema } from "@/constants/form/otp"
 import { type ReservationSchema } from "@/constants/form/reservation";
 import { toast } from "sonner"
+import CountdownTimer from "@/components/modules/counterDown";
 
 function Reservation({ locale }: { locale: string }) {
     const modal = useContext(ModalCtx);
@@ -17,7 +18,7 @@ function Reservation({ locale }: { locale: string }) {
     const { mutateAsync, isPending: createRervationPending } = trpc.reservation.create.useMutation()
     const { mutate, isPending: verifiyReservationPending } = trpc.reservation.verify.useMutation()
 
-    const showModalHandler = ({ phoneNumber }: ReservationSchema) => {
+    const showModalHandler = (response: ReservationSchema) => {
         modal?.showModal({
             title: tg("VerificationCode"),
 
@@ -32,7 +33,6 @@ function Reservation({ locale }: { locale: string }) {
                         },
                         onError: error => {
                             toast.error(error.message);
-                            closeModal(id)
                         },
                     })
                 }
@@ -45,10 +45,18 @@ function Reservation({ locale }: { locale: string }) {
                             isPending={verifiyReservationPending}
                             submitBtnText={tg("Confirm")}
                             locale={locale}
-                            defaultValues={{ code: "", phone: phoneNumber }}
+                            defaultValues={{ code: "", phone: response.phoneNumber }}
                             inputsContainerClass="-mt-5"
                             submitBtnClass="!py-1 text-sm w-10/12 mx-auto mt-5"
-                        />
+                        >
+                            <CountdownTimer
+                                bodyReq={response}
+                                className="mt-5"
+                                duration={120000}
+                                resendText={tg("ResentOtp")}
+                                locale={locale}
+                            />
+                        </Form>
                     </div>
                 )
             }
