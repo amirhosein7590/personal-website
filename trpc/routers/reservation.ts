@@ -5,6 +5,7 @@ import { otpSchema } from "@/constants/form/otp";
 import { getTranslations } from "next-intl/server";
 import sendSms from "@/utils/server/sendSms";
 import crypto from "crypto"
+import dateToPersianDateString from "@/utils/dateToPersianDateString";
 
 const reservationRouter = router({
 
@@ -97,6 +98,7 @@ const reservationRouter = router({
                     })
 
                     if (!user) {
+
                         // 3.1 if user was not exist , then will create a new user and continue creating reservation process
 
                         user = await ctx.prisma.user.create({
@@ -136,6 +138,7 @@ const reservationRouter = router({
             }),
     verify: publicProcedure.input(otpSchema)
         .mutation(async ({ input, ctx }) => {
+
             // 0. check current language
 
             const t = await getTranslations({
@@ -180,10 +183,15 @@ const reservationRouter = router({
                     },
                     orderBy: {
                         createdAt: "desc"
+                    },
+                    include: {
+                        user: true
                     }
                 })
 
                 if (reservation) {
+                    const reservationDate = dateToPersianDateString(ctx.locale, reservation.preferredDate)
+
                     await ctx.prisma.reservation.update({
                         where: {
                             id: reservation.id
@@ -199,9 +207,31 @@ const reservationRouter = router({
                         }
                     })
 
+                    // 3. Will send an SMS to the user to inform them of the consultation reservation
+
+                    await sendSms({
+                        phoneNumber: input.phone,
+                        patternKey: process.env.RESERVATION_CREATE_PATTERN_KEY,
+                        param1: reservation.user.fullName,
+                        param2: reservationDate,
+                        param3: reservation.preferredTime
+                    })
+
+                    // 4. Will send an SMS to developer (me) to inform someone to reserve a consultation
+
+                    await sendSms({
+                        phoneNumber: process.env.DEVELOPER_PHONE as string,
+                        patternKey: process.env.CONSULTATION_BOOKED_PATTERN_KEY,
+                        param1: reservation.user.fullName,
+                        param2: reservationDate,
+                        param3: reservation.preferredTime
+                    })
+
                     return {
                         message: t("Success.ConsultationBooked"),
                     }
+
+
                 }
 
                 throw new TRPCError({
