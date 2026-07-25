@@ -144,7 +144,11 @@
         "Cancel" : "انصراف",
         "Minute" : "دقیقه",
         "Hour" : "ساعت",
-        "VerificationCode" : "کد تایید"
+        "Second" : "ثانیه",
+        "VerificationCode" : "کد تایید",
+        "ResentOtp" : "ارسال مجدد کد",
+        "ToResend" : "تا ارسال مجدد",
+        "And" : "و"
     },
     "Form" : {
         "validation": {

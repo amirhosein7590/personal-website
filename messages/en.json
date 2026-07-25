@@ -146,7 +146,11 @@
         "Cancel" : "Cancel",
         "Minute" : "minute",
         "Hour" : "hour",
-        "VerificationCode" : "Verification Code"
+        "Second" : "second",
+        "ToResend" : "to resend",
+        "And" : "and",
+        "VerificationCode" : "Verification Code",
+        "ResentOtp" : "Resend code"
     },
     "Form" : {
         "validation": {
