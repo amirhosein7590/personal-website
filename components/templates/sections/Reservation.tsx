@@ -6,7 +6,8 @@ import { memo } from "react";
 import { trpc } from "@/trpc/client"
 import { useContext } from "react";
 import { ModalCtx } from "@/providers/ModalProvider";
-import { type OtpSchema } from "@/constants/form/otp";
+import { type OtpSchema } from "@/constants/form/otp"
+import { type ReservationSchema } from "@/constants/form/reservation";
 import { toast } from "sonner"
 
 function Reservation({ locale }: { locale: string }) {
@@ -16,7 +17,7 @@ function Reservation({ locale }: { locale: string }) {
     const { mutateAsync, isPending: createRervationPending } = trpc.reservation.create.useMutation()
     const { mutate, isPending: verifiyReservationPending } = trpc.reservation.verify.useMutation()
 
-    const showModalHandler = () => {
+    const showModalHandler = ({ phoneNumber }: ReservationSchema) => {
         modal?.showModal({
             title: tg("VerificationCode"),
 
@@ -44,6 +45,7 @@ function Reservation({ locale }: { locale: string }) {
                             isPending={verifiyReservationPending}
                             submitBtnText={tg("Confirm")}
                             locale={locale}
+                            defaultValues={{ code: "", phone: phoneNumber }}
                             inputsContainerClass="-mt-5"
                             submitBtnClass="!py-1 text-sm w-10/12 mx-auto mt-5"
                         />
