@@ -56,3 +56,5 @@ export const reservationFields: InputProps[] = [
         triggerClassName: "w-full"
     }
 ]
+
+export type ReservationSchema = z.infer<typeof reservationSchema>

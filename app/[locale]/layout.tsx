@@ -12,6 +12,7 @@ import Navbar from "@/components/templates/navbar/Navbar";
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import { Toaster } from "@/components/modules/sonner";
 
 const estedad = Estedad({
   src: [
@@ -68,6 +69,10 @@ export default async function RootLayout({ children, params }: Props) {
               <main className="text-white px-4 overflow-x-hidden lg:px-0">
                 {children}
               </main>
+              <Toaster
+                position="top-center"
+                richColors
+              />
             </ModalProvider>
           </NextIntlClientProvider>
         </TrpcProvider>

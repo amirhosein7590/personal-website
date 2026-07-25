@@ -1,10 +1,15 @@
 import { initTRPC } from "@trpc/server"
 import superjson from "superjson"
 import { prisma } from "@/lib/prisma";
+import { cookies } from "next/headers";
 
 export async function createTRPCContext() {
+    const cookieStore = cookies();
+    const locale = (await cookieStore).get("NEXT_LOCALE")?.value || "fa";
+
     return {
-        prisma
+        prisma,
+        locale
     }
 }
 

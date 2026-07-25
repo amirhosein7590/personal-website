@@ -44,7 +44,8 @@ function ModalProvider({ children }: PropsWithChildren) {
             header: config.header,
             parentId: config.parentId,
             size: config.size,
-            title: config.title
+            title: config.title,
+            disablePointerDismissal: config.disablePointerDismissal
         }
         setStack(prev => [...prev, newModal]);
         return id.current

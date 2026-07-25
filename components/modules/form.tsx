@@ -10,14 +10,18 @@ import { renderFields } from "@/utils/form/renderFields"
 import { useTranslations } from "next-intl"
 import z from "zod"
 import { memo } from "react"
+import Spinner from "./spinner"
+import { toast } from "sonner"
 
 type GetEntityData<T extends EntityNames> = z.infer<
     (typeof registryEntity)[T]['schema']
 >;
 
+type SubmitRes = Promise<{ message: string, cause: { success: boolean } } & Record<string, any>> | void
+
 type FormProps<T extends EntityNames> = {
     entityName: T,
-    submitFn: (data: GetEntityData<T>) => void,
+    submitFn: (data: GetEntityData<T>) => SubmitRes,
     afterSubmitFn?: (data: GetEntityData<T>) => void,
     formClass?: string,
     submitBtnClass?: string,
@@ -52,11 +56,16 @@ function Form<T extends EntityNames>({
 
     const onSubmit = async (data: FormData) => {
         if (afterSubmitFn) {
-            await (submitFn as (data: FormData) => void)(data);
+            const res = await (submitFn as (data: FormData) => SubmitRes)(data);
+            console.log("in after submit");
+            if (res) {
+                const toastConfigs = { status: res.cause.success ? "success" : "error", message: res.message }
+                toast[toastConfigs.status as "success" | "error"](toastConfigs.message)
+            }
             (afterSubmitFn as (data: FormData) => void)(data)
             return
         }
-        (submitFn as (data: FormData) => void)(data)
+        (submitFn as (data: FormData) => SubmitRes)(data)
     }
 
     return (
@@ -83,7 +92,7 @@ function Form<T extends EntityNames>({
                             })}
                         />
                         {error && error?.message && <span className={cn(
-                            "text-red-500 inline-block mt-2 text-xs inline-block w-full",
+                            "text-red-500 inline-block mt-2 text-xs w-full",
                             input.errorClass ?? ""
                         )}>{t(error.message)}</span>}
                     </div>
@@ -94,10 +103,11 @@ function Form<T extends EntityNames>({
                     "py-3! px-8! bg-transparent border w-full mx-auto mt-5 border-white",
                     "rounded-md flex justify-center items-center cursor-pointer",
                     submitBtnClass
-                )}>{isPending ? "در حال ارسال" : submitBtnText}</Button>
+                )}>{isPending ? <Spinner color="white" /> : submitBtnText}</Button>
             </div>
         </form>
     )
 }
 
-export default memo(Form)
+const MemoForm = memo(Form) as typeof Form;
+export default MemoForm;

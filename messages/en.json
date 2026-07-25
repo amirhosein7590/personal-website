@@ -145,7 +145,8 @@
         "Confirm" : "OK",
         "Cancel" : "Cancel",
         "Minute" : "minute",
-        "Hour" : "hour"
+        "Hour" : "hour",
+        "VerificationCode" : "Verification Code"
     },
     "Form" : {
         "validation": {
@@ -174,6 +175,21 @@
                 "required" : "Verification code is required.",
                 "min" : "The verification code must be six digits."
             }
+        }
+    },
+    "ServerResponse" : {
+        "Success" : {
+          "SendOtp" : "Verification code sent successfully",
+          "ConsultationBooked" : "Consultation booked successfully"
+        },
+        "Failed" : {
+            "SendOtp" : "Send verification code is failed",
+            "OtpAvailable" : "The previous verification code is not expire yet",
+            "OtpExpired" : "Verification code is Expired",
+            "OtpIsInCorrect" : "Verification code is incorrect",
+            "ErrorInBooking" : "Error in booking consultation please try again",
+            "TooManyPendingReservation" : "You have more than 5 unfulfilled consultation reservations.",
+            "ServerError" : "Unknown Error !!"
         }
     }
 }

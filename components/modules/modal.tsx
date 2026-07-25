@@ -14,7 +14,7 @@ import type { Modal, Size, CloseModal, UpdateData } from "@/types/providers/moda
 type ModalProps = {
     modal: Modal,
     close: CloseModal,
-    update: UpdateData
+    update: UpdateData,
 }
 
 function ModalComponent({ modal, close, update }: ModalProps) {
@@ -34,12 +34,12 @@ function ModalComponent({ modal, close, update }: ModalProps) {
     } = modal;
 
     return (
-        <Dialog open onOpenChange={handleOpenChange}>
+        <Dialog open onOpenChange={handleOpenChange} disablePointerDismissal={modal.disablePointerDismissal ?? false}>
             <DialogContent className={sizeClasses(size ? size : "sm")}>
                 <DialogHeader
                     className="!justify-between !flex-row !items-center"
                     style={{ direction: "ltr" }}
-                    >
+                >
                     {typeof Header == "function" ? <Header /> : Header}
                     <DialogTitle className="!mr-10 text-sm">{title}</DialogTitle>
                 </DialogHeader>

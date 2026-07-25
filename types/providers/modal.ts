@@ -27,4 +27,5 @@ export type Modal = {
   showModal?: ShowModal,
   closeModal?: CloseModal,
   updateData?: UpdateData,
+  disablePointerDismissal : boolean
 }

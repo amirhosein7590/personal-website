@@ -9,7 +9,7 @@ export type InputProps = {
     className?: string,
     triggerClassName?: string,
     otpContainerClassName?: string,
-    errorClass ?: string
+    errorClass?: string
 }
 
 
