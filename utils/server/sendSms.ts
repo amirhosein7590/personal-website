@@ -5,7 +5,17 @@ type SmsResponse = {
     success: boolean
 }
 
-export type SendSms = (data: Record<string, string>) => Promise<SmsResponse>
+type SendSmsParameter = {
+    patternKey?: string,
+    phoneNumber: string,
+    param1?: string,
+    param2?: string,
+    param3?: string,
+    text?: string
+}
+
+
+export type SendSms = (data: SendSmsParameter) => Promise<SmsResponse>
 
 const sendSms: SendSms = async ({
     patternKey,
