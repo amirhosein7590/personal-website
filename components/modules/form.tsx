@@ -9,7 +9,7 @@ import { isLangPersian } from "@/utils/i18n/isLangPersian"
 import { renderFields } from "@/utils/form/renderFields"
 import { useTranslations } from "next-intl"
 import z from "zod"
-import { memo } from "react"
+import { memo, useEffect } from "react"
 import Spinner from "./spinner"
 import { toast } from "sonner"
 
@@ -17,18 +17,19 @@ type GetEntityData<T extends EntityNames> = z.infer<
     (typeof registryEntity)[T]['schema']
 >;
 
-type SubmitRes = Promise<{ message: string, cause: { success: boolean } } & Record<string, any>> | void
+type SubmitRes = Promise<{ message: string } & Record<string, any>> | void
 
 type FormProps<T extends EntityNames> = {
     entityName: T,
     submitFn: (data: GetEntityData<T>) => SubmitRes,
-    afterSubmitFn?: (data: GetEntityData<T>) => void,
+    afterSubmitFn?: (data: GetEntityData<T>, res?: Awaited<SubmitRes>) => void,
     formClass?: string,
     submitBtnClass?: string,
     inputsContainerClass?: string
     submitBtnText: string,
     locale: string,
-    isPending: boolean
+    isPending: boolean,
+    defaultValues?: GetEntityData<T>
 }
 
 function Form<T extends EntityNames>({
@@ -40,7 +41,8 @@ function Form<T extends EntityNames>({
     submitBtnClass,
     locale,
     isPending = false,
-    afterSubmitFn
+    afterSubmitFn,
+    defaultValues
 }: FormProps<T>) {
 
     const entity = registryEntity[entityName];
@@ -48,21 +50,43 @@ function Form<T extends EntityNames>({
 
     type FormData = z.infer<typeof schema>
     const t = useTranslations("Form")
-    const { control, formState: { errors }, handleSubmit } = useForm<FormData>({
+    const { control,
+        formState: { errors, submitCount },
+        reset,
+        handleSubmit,
+    } = useForm<FormData>({
         mode: "onChange",
         resolver: zodResolver(schema)
     })
 
+    useEffect(() => {
+        if (defaultValues) {
+            reset(defaultValues)
+        }
+
+        return () => {
+            reset({})
+        }
+
+    }, [])
+
+    useEffect(() => {
+        console.log("errors => ", errors);
+    }, [errors, submitCount])
+
 
     const onSubmit = async (data: FormData) => {
+
         if (afterSubmitFn) {
-            const res = await (submitFn as (data: FormData) => SubmitRes)(data);
-            console.log("in after submit");
-            if (res) {
-                const toastConfigs = { status: res.cause.success ? "success" : "error", message: res.message }
-                toast[toastConfigs.status as "success" | "error"](toastConfigs.message)
+            try {
+                const res = await (submitFn as (data: FormData) => SubmitRes)(data);
+                (afterSubmitFn as (data: FormData , res ?: Awaited<SubmitRes>) => void)(data,res)
+                if (res) {
+                    toast.success(res.message)
+                }
+            } catch (error: any) {
+                toast.error(error.message)
             }
-            (afterSubmitFn as (data: FormData) => void)(data)
             return
         }
         (submitFn as (data: FormData) => SubmitRes)(data)
