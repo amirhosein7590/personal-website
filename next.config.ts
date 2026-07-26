@@ -3,18 +3,14 @@ import createNextIntlPlugin from 'next-intl/plugin';
 
 
 const nextConfig: NextConfig = {
-  experimental: {
-    serverComponentsExternalPackages: [
-      '@prisma/client',
-      '@prisma/adapter-libsql',
-      'libsql',
-      'prisma'
-    ],
-  },
-  env: {
-    DATABASE_TURSO_DATABASE_URL: process.env.DATABASE_TURSO_DATABASE_URL,
-    DATABASE_TURSO_AUTH_TOKEN: process.env.DATABASE_TURSO_AUTH_TOKEN,
-  },
+  serverExternalPackages: [
+    "@prisma/client",
+    "prisma"
+  ],
+  poweredByHeader: false,
+  turbopack: {
+    root: process.cwd()
+  }
 };
 
 const withNextIntl = createNextIntlPlugin();
