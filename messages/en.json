@@ -155,15 +155,15 @@
     "Form" : {
         "validation": {
             "fullName": {
-              "required" : "full name is required",
+              "required" : "Full name is required",
               "min": "Full name must be at least 3 characters"
             },
             "phoneNumber": {
-              "required" : "phone number is required",
+              "required" : "Phone number is required",
               "invalid": "Invalid phone number (must start with 09, 021, or 051 and have 11 digits)"
             },
             "title": {
-              "required" : "title is required",
+              "required" : "Subject is required",
               "min": "Subject must be at least 5 characters"
             },
             "description" : {
@@ -173,7 +173,7 @@
               "required": "Time is required"
             },
             "preferredDate" : {
-                "required" : "date is required"
+                "required" : "Date is required"
             },
             "otp" : {
                 "required" : "Verification code is required.",
