@@ -158,6 +158,7 @@ function CountdownTimer({
                 <motion.p
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
+                    dir={isLangPersian(locale) ? "rtl" : "ltr"}
                     className="text-xs text-muted-foreground"
                 >
                     {minutes > 0
