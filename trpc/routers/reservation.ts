@@ -6,6 +6,7 @@ import { getTranslations } from "next-intl/server";
 import sendSms from "@/utils/server/sendSms";
 import crypto from "crypto"
 import dateToPersianDateString from "@/utils/dateToPersianDateString";
+import toEnglishDigits from "@/utils/toEnglishDigits";
 
 const reservationRouter = router({
 
@@ -21,13 +22,15 @@ const reservationRouter = router({
 
                 try {
 
+                    const userPhone = toEnglishDigits(input.phoneNumber)
+
                     // 1. check if user have 5 pending reservation or more stop process
 
                     const userReservations = await ctx.prisma.reservation.findMany({
                         where: {
                             status: "PENDING",
                             user: {
-                                phone: input.phoneNumber
+                                phone: userPhone
                             },
                         }
                     })
@@ -42,7 +45,7 @@ const reservationRouter = router({
                     // 2. find and check otp
 
                     const otp = await ctx.prisma.otp.findFirst({
-                        where: { phone: input.phoneNumber }
+                        where: { phone: userPhone }
                     });
 
                     if (otp) {
@@ -58,7 +61,7 @@ const reservationRouter = router({
                             // 2.2 if otp exist and is expired , delete it and continue process
 
                             await ctx.prisma.otp.delete({
-                                where: { id: otp.id, phone: input.phoneNumber }
+                                where: { id: otp.id, phone: userPhone }
                             })
                         }
                     }
@@ -69,7 +72,7 @@ const reservationRouter = router({
                     const codeExpTime = Date.now() + Number(process.env.OTP_EXPIRE_TIME)
                     const smsResult = await sendSms({
                         patternKey: process.env.OTP_PATTERN_KEY as string,
-                        phoneNumber: input.phoneNumber,
+                        phoneNumber: userPhone,
                         param1: code
                     })
 
@@ -85,7 +88,7 @@ const reservationRouter = router({
                         data: {
                             code,
                             expiresAt: String(codeExpTime),
-                            phone: input.phoneNumber
+                            phone: userPhone
                         }
                     })
 
@@ -93,7 +96,7 @@ const reservationRouter = router({
 
                     let user = await ctx.prisma.user.findUnique({
                         where: {
-                            phone: input.phoneNumber
+                            phone: userPhone
                         }
                     })
 
@@ -104,7 +107,7 @@ const reservationRouter = router({
                         user = await ctx.prisma.user.create({
                             data: {
                                 fullName: input.fullName,
-                                phone: input.phoneNumber
+                                phone: userPhone
                             }
                         })
                     }
@@ -122,7 +125,7 @@ const reservationRouter = router({
 
                     return {
                         message: t("Success.SendOtp"),
-                        phoneNumber: input.phoneNumber
+                        phoneNumber: userPhone
                     }
 
                 } catch (error) {
@@ -149,8 +152,10 @@ const reservationRouter = router({
             try {
                 // 1. find the sent otp
 
+                const userPhone = toEnglishDigits(input.phone)
+
                 const otp = await ctx.prisma.otp.findFirst({
-                    where: { phone: input.phone }
+                    where: { phone: userPhone }
                 })
                 const otpExpTime = Number(otp?.expiresAt)
 
@@ -190,7 +195,7 @@ const reservationRouter = router({
                 })
 
                 if (reservation) {
-                    const reservationDate = dateToPersianDateString(ctx.locale, reservation.preferredDate)
+                    const reservationDate = dateToPersianDateString("fa", reservation.preferredDate) // send locale date string always solar date
 
                     await ctx.prisma.reservation.update({
                         where: {
@@ -210,7 +215,7 @@ const reservationRouter = router({
                     // 3. Will send an SMS to the user to inform them of the consultation reservation
 
                     await sendSms({
-                        phoneNumber: input.phone,
+                        phoneNumber: userPhone,
                         patternKey: process.env.RESERVATION_CREATE_PATTERN_KEY,
                         param1: reservation.user.fullName,
                         param2: reservationDate,
