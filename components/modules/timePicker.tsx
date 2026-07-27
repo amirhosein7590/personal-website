@@ -103,7 +103,7 @@ function TimePicker({
             } />
 
             <PopoverContent>
-                <div className="times flex flex-col">
+                <div dir='ltr' className="times flex flex-col">
                     <div className="flex justify-between gap-x-3">
                         <div className="hours scrollbar-none hover:scrollbar-thin hover:scrollbar-thumb-accent-blue flex flex-col w-1/2 max-h-50 overflow-y-auto">
                             <p className='text-sm text-center mb-2'>{t("Hour")}</p>
