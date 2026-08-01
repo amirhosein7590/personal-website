@@ -6,7 +6,6 @@
 
 @layer base {
   :root {
-    /* متغیرهای تم شما */
     --text-body: #171717;
     --bg-dark: #080c14;
     --bg-card: #111726;

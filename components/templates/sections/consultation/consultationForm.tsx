@@ -11,7 +11,7 @@ import { type ReservationSchema } from "@/constants/form/reservation";
 import { toast } from "sonner"
 import CountdownTimer from "@/components/modules/counterDown";
 
-function Reservation({ locale }: { locale: string }) {
+function consultationForm({ locale }: { locale: string }) {
     const modal = useContext(ModalCtx);
     const t = useTranslations("HomePage");
     const tg = useTranslations("Global")
@@ -66,15 +66,20 @@ function Reservation({ locale }: { locale: string }) {
         })
     }
 
-    return <Form
-        entityName="Reservation"
-        submitBtnText={t("Reservation.ConsultationReserve")}
-        submitFn={(data) => mutateAsync(data)}
-        afterSubmitFn={showModalHandler}
-        inputsContainerClass="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full mb-5"
-        locale={locale}
-        isPending={createRervationPending}
-    />
+    return (
+        <div className="reservation__container w-full mb-20 mt-10 lg:mt-0">
+            <Form
+                entityName="Reservation"
+                submitBtnText={t("Reservation.ConsultationReserve")}
+                submitFn={(data) => mutateAsync(data)}
+                afterSubmitFn={showModalHandler}
+                formClass="w-full"
+                inputsContainerClass="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full mb-5"
+                locale={locale}
+                isPending={createRervationPending}
+            />
+        </div>
+    )
 }
 
-export default memo(Reservation)
+export default memo(consultationForm)
