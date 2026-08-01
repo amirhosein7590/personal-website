@@ -16,14 +16,14 @@ export const reservationFields: InputProps[] = [
     {
         type: "text",
         name: "fullName",
-        englishPlaceholder: "full name",
+        englishPlaceholder: "Full name",
         persianPlaceholder: "نام و نام خانوادگی",
         className: "w-full"
     },
     {
         type: "text",
         name: "phoneNumber",
-        englishPlaceholder: "phone number",
+        englishPlaceholder: "Phone number",
         persianPlaceholder: "شماره تماس",
         className: "w-full"
     },
