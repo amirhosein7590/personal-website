@@ -121,15 +121,14 @@ function ProjectCard({
 
             <div className="flex flex-1 flex-col p-6">
 
-                <div className="flex items-start justify-between gap-4">
+                <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-4">
 
                     <h3 className="md:text-2xl font-bold text-white">
                         {title}
                     </h3>
 
-                    <span
+                    <p
                         className="
-                        shrink-0
                         rounded-full
                         border
                         border-blue-500/30
@@ -139,10 +138,12 @@ function ProjectCard({
                         text-xs
                         font-medium
                         text-blue-300
+                        
+                        text-center
                     "
                     >
                         {type}
-                    </span>
+                    </p>
 
                 </div>
 
@@ -152,13 +153,12 @@ function ProjectCard({
                 text-sm
                 leading-7
                 text-slate-400
-                line-clamp-3
             ">
                     {description}
                 </p>
 
 
-                <div className="mt-6">
+                <div className="mt-auto">
 
                     <div className="mt-3 flex flex-wrap gap-2">
 
