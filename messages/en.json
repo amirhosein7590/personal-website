@@ -3,139 +3,153 @@
         "Navbar" : {
             "DeveloperName" : "Amirhosein Gholami"
         },
-        "HeroHeader" : {
-            "DeveloperIntroduction" : "I'm Amirhosein",
-            "WhoIam" : {
-                "main" : "Full Stack Developer Building ",
-                "markedText" : "Fast & Scalable Web Products"
+        "HeroHeader": {
+            "DeveloperIntroduction": "Developer of custom web and desktop systems",
+            "WhoIam": {
+                "main": "Transforming complexity into ",
+                "markedText": "fast and secure profitable software"
             },
-            "WhatIDo" : "Building modern web and desktop applications for growing businesses.",
-            "Buttons" : {
-                "ViewProjects" : "Browse Projects",
-                "StartProject" : "Book a Free Consultation"
+            "WhatIDo": "Building web applications and custom management systems with no hidden costs; designed precisely to fit your business needs and scale.",
+            "Buttons": {
+                "ViewProjects": "View Portfolio",
+                "StartProject": "Book a Free Consultation"
             }
         },
 
-        "Services" : {
-            "Cards" : {
+        "Services": {
+            "Cards": {
                 "ApplicationDevelopment": {
-                    "Title": "Custom Application Development",
-                    "Description": "Build secure, scalable web and desktop applications tailored to your business requirements, from planning to deployment."
+                "Title": "Custom Web App & Automation Development",
+                "Description": "Design and implementation of web-based systems, admin panels, and automation tools to eliminate manual processes and achieve maximum productivity."
                 },
                 "UserInterfaceDesign": {
-                    "Title": "Interfaces Users Enjoy Using",
-                    "Description": "Design intuitive interfaces that make your product easier to use and increase user engagement."
+                "Title": "Desktop & Cloud-Based Software",
+                "Description": "Development of multi-branch systems, ERP, industrial accounting, and financial management with cloud synchronization and integration with peripheral hardware."
                 },
                 "BackendDevelopment": {
-                    "Title": "Reliable Backend Systems",
-                    "Description": "Develop secure backend systems and APIs that keep your application reliable, scalable, and easy to maintain."
+                "Title": "Upgrading & Optimizing Existing Infrastructures",
+                "Description": "Increasing loading speed, fixing security issues, and redesigning legacy software architecture to handle high user traffic volumes."
                 },
                 "OptimizationConsulting": {
-                    "Title": "Make Your Product Faster  ",
-                    "Description": "Improve your application's speed, security, architecture, and overall performance."
+                "Title": "Technical & Software Architecture Consulting",
+                "Description": "Detailed analysis of technical requirements before coding begins to prevent rework and avoid wasting your business capital."
                 }
             },
-            "MyServicesText" : "Services",
-            "Solutions" : "From the initial idea to a ready-to-use product",
-            "HowCanIHelpYou" : "Every project is different. I help you choose the right solution and deliver your product from design to deployment."
+            "MyServicesText": "Specialized Services",
+            "Solutions": "Software solutions tailored to your business scale",
+            "HowCanIHelpYou": "Every business has unique challenges. I design and implement the best software solution based on your financial and operational goals."
         },
-        "Projects" : {
-            "MyProjectsText" : "Projects",
-            "ViewProject" : "View Project",
-            "Medad" : {
-                "Title" : "Medad System",
-                "ProjectType" : "Website",
-                "Description" : "A complete platform for school management with advanced features for attendance, reporting, student and teacher management, informing parents of their child's presence and absence at school with an SMS panel. The ability to communicate seamlessly between personnel in the system in an integrated manner to provide information and reduce costs.",
-                "ImageAlt" : "تصویر مدیریت کلاس در سامانه مداد"
-            },
-            "SingoLearn" : {
-                "Title" : "Singo Learn",
-                "ProjectType" : "Website",
-                "Description" : "Programming education website, ability to create courses, create chapters for courses, and manage teachers and students through the admin panel. Each student and teacher has a management dashboard built in, depending on their role.",
-                "ImageAlt" : "تصویر صفحه اصلی وبسایت سینگو لرن"
+        "Projects": {
+            "MyProjectsText": "Featured Projects",
+            "ViewProject": "View Site",
+            "Medad": {
+              "Title": "Comprehensive School Management System (Medad)",
+              "ProjectType": "Custom Website",
+              "Description": "Integrated platform for attendance control and parent communication. Reduces school notification costs by 70% through intelligent SMS panel and provides real-time management reports.",
+              "ImageAlt": "Class management dashboard in Medad system"
             },
             "RestaurantPro": {
-                "Title": "Restaurant Pro",
-                "ProjectType": "Desktop Application",
-                "Description": "A cloud-based multi-branch restaurant management platform designed to centralize branch operations, user management, inventory, orders, sales, and financial reporting. The system provides role-based access for administrators, branch managers, and cashiers while offering analytical dashboards, cloud synchronization, POS integration, and streamlined workflows for enterprise restaurant chains.",
-                "ImageAlt": "Dashboard of a multi-branch restaurant management system"
+              "Title": "Restaurant Pro",
+              "ProjectType": "Desktop & Cloud Software",
+              "Description": "Comprehensive management system for chain restaurants. Features centralized inventory, online/offline cloud sync, card reader integration, and role-based access from cashier to general manager.",
+              "ImageAlt": "Multi-branch management dashboard of Restaurant Pro"
             },
             "Tashim": {
-                "Title": "Tashim System",
-                "ProjectType": "Desktop Application",
-                "Description": "An enterprise ERP solution for project financial management and cost accounting, designed to calculate project cost, profitability, and financial performance. The platform supports project and contract management, cost centers, timesheets, budgeting, accounts receivable, and intelligent overhead allocation while providing executive dashboards and analytical reports for data-driven decision making.",
-                "ImageAlt": "Dashboard of a Project Costing ERP system"
+              "Title": "Tashim Financial System",
+              "ProjectType": "Desktop Financial System",
+              "Description": "Specialized industrial accounting and project cost management software. Includes intelligent overhead cost allocation, timesheet analysis, and project profitability forecasting.",
+              "ImageAlt": "Tashim financial management system dashboard"
+            },
+            "SingoLearn": {
+              "Title": "SingoLearn Educational Platform",
+              "ProjectType": "Custom Website",
+              "Description": "Learning Management System (LMS) with course definition, systematic sales, separate panels for instructors and students, and discount code management.",
+              "ImageAlt": "SingoLearn educational platform homepage"
             }
-           
         },
         "Tools" : {
             "ToolsText" : "Technologies",
             "Solutions" : "I create the best solutions with the best tools."
         },
-        "ColaborationProcess" : {
-            "ColaborationText" : "Colabration Process",
-            "ColaborationDescription" : "We are with you from idea to product.",
+        "ColaborationProcess": {
+            "ColaborationText": "Project Execution Path",
+            "ColaborationDescription": "From initial idea to final system delivery",
             "steps": {
-                "1": {
-                    "stepNumber" : "1",
-                    "Title": "Consultation & Analysis",
-                    "Description": "Reviewing your idea and business, analyzing requirements, and providing solutions"
+              "1": {
+                "stepNumber": "1",
+                "Title": "Initial Consultation & Analysis",
+                "Description": "Reviewing your business goals, extracting requirements, and presenting the best technical solution at no cost."
+              },
+              "2": {
+                "stepNumber": "2",
+                "Title": "Cost, Timeline & Initial Design Clarification",
+                "Description": "Providing a transparent proposal including precise scheduling, delivery phases, costs, and UI mockups."
+              },
+              "3": {
+                "stepNumber": "3",
+                "Title": "Development, Implementation & Testing",
+                "Description": "Standard coding, backend and frontend implementation, along with security and performance testing."
+              },
+              "4": {
+                "stepNumber": "4",
+                "Title": "Delivery, Training & Support",
+                "Description": "Deploying the system on server, providing complete training to your team, and starting the free support period."
+              }
+            }
+        },
+        "WhyWorkWithMe": {
+            "Badge": "Why Partner With Me?",
+            "Title": "Work Principles & Quality Guarantees",
+            "Subtitle": "Why you can confidently trust your software development to me",
+            "Cards": {
+                "CRO": {
+                    "Title": "Conversion Rate & UX Optimization",
+                    "Description": "Your site isn't just for show; it's a sales engine. I optimize user flows, boost page speed, and design data-driven interfaces to dramatically multiply your conversion rates."
                 },
-                "2": {
-                    "stepNumber" : "2",
-                    "Title": "Design & Planning",
-                    "Description": "UI/UX design, creating a timeline, and planning for project completion"
-                 },
-                "3": {
-                    "stepNumber" : "3",
-                    "Title": "Development & Implementation",
-                    "Description": "Coding and implementation, testing, and ensuring the website/software functions correctly"
+                "PhasedDelivery": {
+                    "Title": "Step-by-Step Progress with Your Feedback",
+                    "Description": "We move through clear project phases so you can review actual outputs at every stage. This minimizes your investment risk and lets you steer the project based on real business needs."
                 },
-                "4": {
-                    "stepNumber" : "4",
-                    "Title": "Delivery & Support",
-                    "Description": "Project delivery, training for usage, and free support"
+                "FreeSupport": {
+                    "Title": "Hassle-Free Training & Ongoing Support",
+                    "Description": "The launch isn't the end. I empower your team to manage the site with ease and provide free technical support to ensure everything runs flawlessly after delivery."
+                },
+                "BusinessFocus": {
+                    "Title": "Smart Focus on Real Profitability",
+                    "Description": "My goal isn't just writing code; it's building a revenue-generating digital asset. From digital marketing strategies to continuous optimization, everything is aligned with your sustainable business growth."
                 }
             }
         },
-        "Testimonials": {
-        "1": {
-        "name": "Ali Rezaei",
-        "content": "We turned to him to design a management panel for our internal projects. Despite its complexity, he delivered the system in a way that was easy for everyone on the team to use."
-    },
-    "2": {
-        "name": "Sara Mohammadi",
-        "content": "We were looking for a meticulous developer to implement our store designs. He not only coded the designs without the slightest deviation, but also made some practical suggestions to improve speed and user experience that really made a positive impact on the final output."
-    },
-    "3": {
-        "name": "Reza Karimi",
-        "content": "He is a very experienced, professional, caring and very sensitive person. He made excellent suggestions to advance the project, met our needs and gained our full confidence for future cooperation."
-    },
-    "4": {
-        "name": "Zahra Ahmadi",
-        "content": "At first, I was skeptical about choosing them, but they completed the project in the best possible way and in the shortest possible time. Their responsiveness is excellent and they quickly fixed any issues I had. Looking forward to working with them again."
-    },
-    "5": {
-        "name": "Mohammad Rahimi",
-        "content": "Mr. Gholami is very punctual, very fast, very ethical, professional, I am completely satisfied with him. I would be happy to work with him again."
-    },
-    "6": {
-        "name": "Negar Hosseini",
-        "content": "Their work is completely correct, they are both ethical and know their job, they carry out the work without any hassle or worry. That's what's important to me. Hoping for more cooperation."
-    },
-    "7": {
-        "name": "Amir Hosseini",
-        "content": "We needed a thorough technical review before investing in a startup. His report was so comprehensive and fair that it made our decision-making process completely transparent. His professionalism was evident throughout the entire process."
-    },
-    "8": {
-        "name": "Maryam Goodarzi",
-        "content": "I chose them out of all the freelancers because they are very respectful, friendly, and professional. But I will definitely be defining the next project for them. My suggestion is to trust them, you won't regret it."
-    },
-    "title": "Testimonials",
-    "subtitle": "Client experiences"
-        },
         "Reservation" : {
             "ConsultationReserve" : "Consultation Reserve"
+        },
+        "Consultation": {
+    "badge": "Free Consultation",
+    "stepper": {
+      "title": "Consultation Process",
+      "step1": {
+        "label": "Your Info",
+        "description": "Enter your contact details"
+      },
+      "step2": {
+        "label": "Schedule",
+        "description": "Choose date and time"
+      },
+      "step3": {
+        "label": "Topic",
+        "description": "Specify your subject"
+      },
+      "step4": {
+        "label": "Verify",
+        "description": "Enter verification code"
+      },
+      "step5": {
+        "label": "Confirmed",
+        "description": "Consultation booked successfully"
+      },
+      "free_badge": "✨ Completely Free",
+      "duration": "30 Minutes"
+    }
         }
     },
     "Global" : {
